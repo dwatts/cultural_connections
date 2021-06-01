@@ -1,0 +1,24 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background: $baby-blue;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 350px;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.nav-link {
+  font-size: 18px;
+  font-weight: 700;
+  color: $dark-purple !important;
+  &:hover {
+    opacity: 0.8;
+  }
+}

@@ -1,0 +1,31 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-size: 45px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 23px;
+  font-weight: 500px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 400px;
+}
+
+p {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.wrapper {
+  /*margin-top: 5rem;*/
+  min-height: calc(100vh - 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
