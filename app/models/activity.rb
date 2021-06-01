@@ -1,6 +1,6 @@
 class Activity < ApplicationRecord
   belongs_to :user
-  has many :activity_categories
+  has_many :activity_categories
   has_many :categories, through: :activity_categories
   has_many :favorites
   has_many :users, through: :favorites

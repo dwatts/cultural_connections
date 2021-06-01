@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+Activity.destroy_all
+
+puts "users and activities were deleted"
+
+puts "creating user and activity"
+
+user1 = User.create ({email: 'francesca@cc.club', username: 'Franci', password: '123456'})
+
+activity_1 = Activity.new({name: 'Kater Blau', address: 'Hofgarten 1 München', description: 'a beautiful multicultural eventspace hosting small concerts and exhibitions', user: user1, price: 1, duration: 2, available_spots: 3})
+activity_1.save!
+
+puts "user1 and activity 1 have been created"
