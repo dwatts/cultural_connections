@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :activities, through: :reviews
   has_many :provided_activities, class_name: 'Activity', foreign_key: :user_id
+  validates :username, presence: true
+  validates :username, uniqueness: true
 end
