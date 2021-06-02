@@ -1,0 +1,11 @@
+<div class="container">
+  <h3>Make a booking</h3>
+  <br>
+  <%= simple_form_for [ @activity, @booking ] do |f| %>
+    <%= f.input :date, label: 'On which date do you want to visit?'%>
+    <%= f.input :number_of_people, label: "for how many people?"%>
+    <%# <%= f.input :date, :as => :, :input_html => { :class => 'date_picker' } %>
+
+    <%= f.submit "Submit", class: "btn btn-confirm" %>
+  <% end %>
+</div>

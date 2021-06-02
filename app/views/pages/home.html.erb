@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="banner">
    <div class="container">
     <h1 class="text-center">Welcome to Cultural Connections</h1>
@@ -47,3 +48,36 @@
     </div>
   </div>
 </div>
+=======
+<div class="container">
+
+  <h1>Pageshome</h1>
+
+
+  <% activity = Activity.find(id=1) %>
+  <% booking = Booking.last %>
+
+  <%= link_to 'index page', activities_path %>
+
+  <br>
+
+  <%= link_to 'show page activities', activity_path(activity) %>
+
+  <br>
+
+  <%= link_to 'new activity form', new_activity_path %>
+
+  <br>
+
+  <%= link_to 'edit activity form', edit_activity_path(activity) %>
+
+  <br>
+  <br>
+  <%= link_to 'make new booking', new_activity_booking_path(activity) %>
+
+   <br>
+  <%= link_to 'edit booking', edit_booking_path(booking) %>
+</div>
+
+
+>>>>>>> master
