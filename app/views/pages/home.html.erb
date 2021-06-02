@@ -8,7 +8,7 @@
       <div class="search-form-control form-group">
         <input class="form-control string required" type="text" placeholder="find activities in a new city" name="search[query]" id="search_query" />
         <div>
-          <button name="button" type="submit" class="btn btn-simple my-3">Go</button>
+          <%= link_to 'Go', activities_path, class: 'btn btn-simple my-3' %>
         </div>
       </div>
     </form>

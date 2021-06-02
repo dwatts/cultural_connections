@@ -32,9 +32,4 @@
     <h3>Will definitely visit <%= @activity.name %> again!</h3>
   </div>
 </div>
-<ul>
-  <% @activity.bookings.each do |booking| %>
-    <li><%= booking.date %>  -  <%= booking.user.username %>  -  <%= booking.number_of_people %>  -  <%= booking.status %></li>
-    <br>
-  <% end %>
-</ul>
+
