@@ -1,4 +1,13 @@
-<h1>this is the show page of <%= @activity.name %></h1>
+<div class="banner">
+   <div class="container text-center">
+    <h1><%= @activity.name %></h1>
+    <%= link_to 'Book this activity!', new_activity_booking_path(@activity), class: 'btn btn-simple my-3' %>
+  </div>
+</div>
+
+<div class="details-container d-flex">
+  re
+</div>
 <ul>
   <% @activity.bookings.each do |booking| %>
     <li><%= booking.date %>  -  <%= booking.user.username %>  -  <%= booking.number_of_people %>  -  <%= booking.status %></li>
