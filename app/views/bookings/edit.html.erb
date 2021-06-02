@@ -2,7 +2,7 @@
   <h3>Cancel a booking</h3>
   <br>
   <%= simple_form_for(@booking) do |f| %>
-    <%= f.input :cancel, inline_label: 'Cancel Booking'%>
+    <%= f.input :status, inline_label: 'Cancel Booking'%>
     <%= f.submit "Submit", class: "btn btn-confirm" %>
   <% end %>
 </div>

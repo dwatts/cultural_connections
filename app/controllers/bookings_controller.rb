@@ -10,12 +10,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.activity = @activity
     @booking.user = current_user
+    @booking.status = true
     authorize @booking
     if @booking.save
-      @booking.status = true
       redirect_to activity_path(@booking.activity)
     else
-      #raise
       render :new
     end
   end
@@ -32,10 +31,9 @@ class BookingsController < ApplicationController
     redirect_to activities_path
   end
 
-
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :number_of_people)
+    params.require(:booking).permit(:date, :number_of_people, :status)
   end
 end
