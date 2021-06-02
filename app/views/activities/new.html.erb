@@ -1,0 +1,14 @@
+<div class="container">
+  <h3>Add your activity or institution to the Cultural Connections Club</h3>
+  <br>
+  <%= simple_form_for(@activity) do |f| %>
+    <%= f.input :name, label: 'What is the name of your institution'%>
+    
+    <%= f.input :address, label: "What's the address?", placeholder: "Königsplatz"%>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :duration %>
+    <%= f.input :available_spots %>
+    <%= f.submit "Submit", class: "btn btn-confirm" %>
+  <% end %>
+</div>
