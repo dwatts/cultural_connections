@@ -1,12 +1,29 @@
-<div class="banner">
-   <div class="container text-center">
+<div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1482245294234-b3f2f8d5f1a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80')">
     <h1><%= @activity.name %></h1>
     <%= link_to 'Book this activity!', new_activity_booking_path(@activity), class: 'btn btn-simple my-3' %>
-  </div>
 </div>
 
-<div class="details-container d-flex">
-  re
+<div class="container">
+  <div class="main-info d-flex justify-content-between">
+    <h6>Every day except Mondays <br>
+       From 9.30 am to 6.00 pm
+    </h6>
+    <p>⭐⭐⭐⭐⭐<br>
+      4.8 out of 16 ratings
+    </p>
+    <div class="card-product">
+      <img src="http://mt0.google.com/vt/lyrs=m@189000000&hl=en&src=api&x=4828&y=6162&z=14&s=Galile" />
+      <div class="card-product-infos">
+        <p><%= @activity.address %></p>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="description">
+    <h6><%= @activity.description %></h6>
+  </div>
 </div>
 <ul>
   <% @activity.bookings.each do |booking| %>
