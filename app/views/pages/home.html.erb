@@ -1,12 +1,59 @@
-<%# Banner %>
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+<div class="banner">
+   <div class="container">
+    <h1 class="text-center">Welcome to Cultural Connections</h1>
+    <p class="text-center">Culture | History | People</p>
+  </div>
+  <div class="container text-center">
+    <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+      <div class="search-form-control form-group">
+        <input class="form-control string required" type="text" placeholder="find activities in a new city" name="search[query]" id="search_query" />
+        <div>
+          <button name="button" type="submit" class="btn btn-simple my-3">Go</button>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
+
+<div class="container space-cards">
+  <hr class="w-80">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mt-5">
+    <div class="col py-2">
+      <div class="card h-100">
+        <div class="card-body">
+          <%= image_tag 'museum1.jpeg', id: 'home_img', class: "card-img-top mx-auto my-3" %>
+          <h3 class="card-title">Discover cultural institutions</h3>
+          <p class="card-text">#</p>
+        </div>
+      </div>
+    </div>
+    <div class="col py-2">
+      <div class="card h-100">
+        <div class="card-body">
+          <%= image_tag 'museum2.jpeg', id: 'home_img', class: "card-img-top mx-auto my-3 pt-5 pb-3" %>
+          <h3 class="card-title">Feel the culture</h3>
+          <p class="card-text">#</p>
+        </div>
+      </div>
+    </div>
+    <div class="col py-2">
+      <div class="card h-100">
+        <div class="card-body">
+          <%= image_tag 'museum3.jpeg', id: 'home_img', class: "card-img-top mx-auto my-3 pt-4 pb-4" %>
+          <h3 class="card-title">Connect the people</h3>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<%# Banner %>
+
+
+
 
 <%# Text and Cards  %>
 
@@ -15,18 +62,18 @@
   <h1>Home Page</h1>
   <p>Lorem ipsum dolor sit amet, vis novum iuvaret appareat ne, pro putant copiosae ut. Labore dissentiet id quo, liber impetus his ut. Sed oratio neglegentur in. Error erroribus urbanitas id vel, cu pericula repudiare sea.
   </p>
-  
+
   <br>
   <br>
-  <br> 
-  
+  <br>
+
   <div class="card-product">
     <img src="https://images.unsplash.com/photo-1612259634947-d395cc7da87d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bXVzZXVtJTIwYnVpbGRpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
     <div class="card-product-infos">
       <div class="d-flex justify-content-between align-items-center pr-2">
         <h2>Deutsches Jagd - und Fischereimuseum</h2>
         <h2><i class="fas fa-euro-sign" aria-hidden="true"></i> 24</h2>
-      </div>  
+      </div>
       <hr>
       <div class="d-flex justify-content-between align-items-center pr-2">
       <h3>Neuhauser Str. 2, 80331 München</h3>
@@ -63,5 +110,6 @@
 
    <br>
   <%= link_to 'edit booking', edit_booking_path(booking) %>
+
 
 </div>
