@@ -1,2 +1,25 @@
 // Import page-specific CSS files here.
 @import "home";
+
+// .index-cards {
+//   display: grid;
+//   grid-template-columns: 1fr;
+// }
+
+.index-card-product {
+  margin: 16px 8px;
+}
+
+#index-container {
+  width: 90%;
+  margin: 16px auto;
+}
+
+.map {
+  background-color: #9eada6;
+  height: 100vh;
+}
+
+.card-link {
+  height: 220px;
+}
