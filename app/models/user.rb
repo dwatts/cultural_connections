@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :activities, through: :bookings
   has_many :reviews
   has_many :activities, through: :reviews
-  has_many :provided_activities, class_name: 'Activity', foreign_key: :user_id
+  has_many :provided_activities, class_name: 'Activity', foreign_key: :user_id, dependent: :destroy
   validates :username, presence: true
   validates :username, uniqueness: true
 end
