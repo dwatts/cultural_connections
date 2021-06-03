@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSelect2 } from '../plugins/init_select2';
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -34,4 +35,10 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initSelect2();
 })
+
+initSweetalert('#sweet-alert-demo', {
+  title: "Confirmation",
+  text: "You're booking was successful!",
+  icon: "success"
+});
 
