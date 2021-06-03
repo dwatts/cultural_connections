@@ -1,0 +1,48 @@
+.popupImg {
+  width: 100%;
+  border-radius: 4px;
+  padding-bottom: 10px;
+}
+
+.mapboxgl-popup {
+  max-width: 350px !important;
+  border-radius: 5px !important;
+  h3 {
+    font-weight: 600;
+  }
+  p {
+    font-weight: 300;
+    margin-bottom: 5px;
+  }
+  hr {
+    margin: 5px 0px 5px 0px;
+  }
+}
+
+.mapboxgl-marker {
+  cursor: pointer;
+}
+
+.mapboxgl-popup-content {
+  padding: 10px !important;
+  background: $baby-blue !important;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2) !important;
+}
+
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+  border-bottom-color: $baby-blue !important;
+}
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+  border-top-color: $baby-blue !important;
+}
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+  border-right-color: $baby-blue !important;
+}
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+  border-left-color: $baby-blue !important;
+}
+
