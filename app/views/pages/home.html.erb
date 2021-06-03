@@ -4,14 +4,15 @@
     <p class="text-center">Culture | History | People</p>
   </div>
   <div class="container text-center">
-    <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-      <div class="search-form-control form-group">
-        <input class="form-control string required" type="text" placeholder="find activities in a new city" name="search[query]" id="search_query" />
-        <div>
-          <%= link_to 'Go', activities_path, class: 'btn btn-simple my-3' %>
-        </div>
-      </div>
-    </form>
+    <%= form_tag activities_path, method: :get do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Enter a location or keyword",
+              style: "border-radius: 15px"
+             %>
+        <%= submit_tag "Search", class:"btn btn-simple my-3"%>
+    <% end %>
   </div>
 </div>
 <br>
