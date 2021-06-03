@@ -27,3 +27,9 @@
   width: 100%;
 }
 
+.index-card-grid {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-gap: 4px;
+}
+
