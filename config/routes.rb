@@ -6,8 +6,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create ]
   end
   resources :bookings, only: [:edit, :update]
-  #get 'activities/:id/bookings/new', to: 'bookings#new', as: 'booking_new'
-
 end
 
 
