@@ -8,7 +8,9 @@ class ActivitiesController < ApplicationController
     @markers = @activities.geocoded.map do |activity|
       {
         lat: activity.latitude,
-        lng: activity.longitude
+        lng: activity.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { activity: activity }),
+        image_url: helpers.asset_url('new_icon')
       }
     end 
   end

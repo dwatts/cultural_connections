@@ -16,10 +16,18 @@
 }
 
 .map {
-  background-color: #9eada6;
   height: 100vh;
+  width: 40%;
+  position: sticky;
+  top: 0;
+  margin: 15px 0px 15px 0px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
 }
 
+#map {
+  border-radius: 5px;
+}
 .card-link {
   height: 220px;
 }
