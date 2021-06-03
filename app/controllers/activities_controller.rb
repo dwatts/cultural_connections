@@ -4,6 +4,14 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = policy_scope(Activity)
+    if params[:query].present?
+      sql_query = " \
+        activities.name @@ :query \
+        OR activities.description @@ :query \
+        OR activities.address @@ :query \
+      "
+      @activities = Activity.where(sql_query, query: "%#{params[:query]}%")
+    end
   end
 
   def show
