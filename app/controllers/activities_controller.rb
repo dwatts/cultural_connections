@@ -12,6 +12,13 @@ class ActivitiesController < ApplicationController
       "
       @activities = Activity.where(sql_query, query: "%#{params[:query]}%")
     end
+
+    @markers = @activities.geocoded.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude
+      }
+    end 
   end
 
   def show
