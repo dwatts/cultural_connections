@@ -9,6 +9,7 @@
     <%= f.input :price %>
     <%= f.input :duration %>
     <%= f.input :available_spots %>
+    <%= f.input :photos, as: :file, label: "Add pictures of your institution", input_html: { multiple: true } %>
     <%= f.submit "Submit", class: "btn btn-confirm" %>
   <% end %>
 </div>
