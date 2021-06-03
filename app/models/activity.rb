@@ -2,6 +2,7 @@ class Activity < ApplicationRecord
   belongs_to :user
   has_many_attached :photos
   has_many :activity_categories
+  has_many :activity_categories, dependent: :destroy
   has_many :categories, through: :activity_categories
   has_many :favorites
   has_many :users, through: :favorites

@@ -4,14 +4,15 @@
     <p class="text-center">Culture | History | People</p>
   </div>
   <div class="container text-center">
-    <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-      <div class="search-form-control form-group">
-        <input class="form-control string required" type="text" placeholder="find activities in a new city" name="search[query]" id="search_query" />
-        <div>
-          <%= link_to 'Go', activities_path, class: 'btn btn-simple my-3' %>
-        </div>
-      </div>
-    </form>
+    <%= form_tag activities_path, method: :get do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Enter a location or keyword",
+              style: "border-radius: 15px"
+             %>
+        <%= submit_tag "Search", class:"btn btn-simple my-3"%>
+    <% end %>
   </div>
 </div>
 <br>
@@ -58,29 +59,10 @@
 </div>
 </div>
 
-<div class="container mt-3 mb-3">
-
   <br>
   <br>
   <br>
 
-  <div class="card-product">
-    <img src="https://images.unsplash.com/photo-1612259634947-d395cc7da87d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bXVzZXVtJTIwYnVpbGRpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
-    <div class="card-product-infos">
-      <div class="d-flex justify-content-between align-items-center pr-2">
-        <h2>Deutsches Jagd - und Fischereimuseum</h2>
-        <h2><i class="fas fa-euro-sign" aria-hidden="true"></i> 24</h2>
-      </div>
-      <hr>
-      <div class="d-flex justify-content-between align-items-center pr-2">
-      <h3>Neuhauser Str. 2, 80331 München</h3>
-      <h3>2- 3 Hours</h3>
-      </div>
-      <p>The German Hunting and Fishing Museum is a museum exhibiting objects connected with the history of hunting and fishing in Germany or other territories which nowadays belong to it. Located in the pedestrian zone of the city center of Munich, Bavaria, it is a rare institution worldwide.</p>
-    </div>
-  </div>
 
-  <br>
-  <br>
-  <br>
+
 </div>

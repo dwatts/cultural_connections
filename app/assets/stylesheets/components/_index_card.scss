@@ -16,8 +16,8 @@
 }
 
 .index-card-product img {
-  height: 100%;
-  width: 220px;
+  height: 100%; 
+  max-width: 220px;
   object-fit: cover;
   border-radius: 5px 0px 0px 5px;
 }
@@ -25,5 +25,11 @@
 .index-card-product .index-card-product-infos {
   padding: 16px;
   width: 100%;
+}
+
+.index-card-grid {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-gap: 4px;
 }
 
