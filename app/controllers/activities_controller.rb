@@ -3,8 +3,25 @@ class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @categories = Category.all
     @activities = policy_scope(Activity)
-    if params[:query].present?
+    if params[:query].present? && params[:category_ids].present?
+      selected_categories = Category.where(id: params[:category_ids])
+      sql_query = " \
+        activities.name @@ :query \
+        OR activities.description @@ :query \
+        OR activities.address @@ :query \
+        "
+
+      @activities = Activity.joins(:categories).where(sql_query, query: "%#{params[:query]}%")
+      @activities = @activities.select do
+        @activities.each do |activity|
+          activity.categories.each do |category|
+            selected_categories.include?(category)
+          end
+        end
+      end
+    elsif params[:query].present?
       sql_query = " \
         activities.name @@ :query \
         OR activities.description @@ :query \
@@ -12,12 +29,12 @@ class ActivitiesController < ApplicationController
       "
       @activities = Activity.where(sql_query, query: "%#{params[:query]}%")
     end
-    @markers = @activities.geocoded.map do |activity|
-      {
-        lat: activity.latitude,
-        lng: activity.longitude
-      }
-    end 
+    # @markers = @activities.geocoded.map do |activity|
+    #   {
+    #     lat: activity.latitude,
+    #     lng: activity.longitude
+    #   }
+    # end 
   end
 
   def show

@@ -8,10 +8,11 @@
               placeholder: "Enter a location or keyword",
               style: "border-radius: 15px"
              %>
-      <% end %>
     </div>
     <div class="col-5">
-    <h2>here goes the select 2 filter option</h2>
+        <%= select_tag "category_ids", options_from_collection_for_select(@categories, "id", "name"), multiple: true %>
+        <%= submit_tag "Search", class:"btn btn-simple my-3"%>  
+      <% end %>
     </div>
   </div>
   <br>
@@ -31,7 +32,7 @@
                 <h2><% if activity.price == 0 %>
                       FREE
                     <% else %>
-                      <i class="fas fa-dollar-sign" aria-hidden="true"></i> <%= activity.price.round(3) %>
+                      <i class="fas fa-dollar-sign" aria-hidden="true"></i> <%= activity.price.round(0) %>
                     <% end %>
                 </h2>
               </div>
