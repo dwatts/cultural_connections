@@ -1,0 +1,9 @@
+<div class="container">
+  <h3>Leave a review for <%=@activity.name%></h3>
+  <br>
+  <%= simple_form_for [ @activity, @review ] do |f| %>
+    <%= f.input :stars, collection: (1..5).to_a, label: 'Rate your experience' %>
+    <%= f.input :comments, label: 'Send your review' %>
+    <%= f.submit "Submit review", class: "btn btn-simple my-3" %>
+  <% end %>
+</div>

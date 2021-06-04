@@ -9,7 +9,7 @@
        From 9.30 am to 6.00 pm
     </h6>
     <p>⭐⭐⭐⭐⭐<br>
-      <strong>4.8</strong> out of <strong>16 ratings</strong>
+      <strong>4.8</strong> out of <strong><%= pluralize @activity.reviews.count, 'rating' %></strong>
     </p>
     <div class="card-product">
       <img src="http://mt0.google.com/vt/lyrs=m@189000000&hl=en&src=api&x=4828&y=6162&z=14&s=Galile" />
@@ -27,8 +27,8 @@
   <div class="text-center border-top py-4">
     <h3><strong>What people say about <%= @activity.name %>:</strong></h3>
     <br>
-    <h3><%= @activity.name %> is amazing!</h3>
+      <%= render 'reviews' %>
     <br>
-    <h3>Will definitely visit <%= @activity.name %> again!</h3>
+    <%= link_to 'Write a review 🖊', new_activity_review_path(@activity), class: 'btn btn-simple my-3' %>
   </div>
 </div>
