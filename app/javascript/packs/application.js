@@ -28,6 +28,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initSelect2 } from '../plugins/init_select2';
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { initFlatpickr } from "../plugins/flatpickr";
+import { initStarRating } from '../plugins/init_star_rating';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -43,4 +44,8 @@ initSweetalert('#sweet-alert-demo', {
   icon: "success"
 });
 
+<<<<<<< HEAD
 initFlatpickr();
+=======
+initStarRating();
+>>>>>>> master
