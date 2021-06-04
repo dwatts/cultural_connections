@@ -1,6 +1,15 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $baby-blue;
+  .far {
+    font-size: 20px;
+  }
+  .fas {
+    font-size: 20px;
+  }
+  .avatar {
+    margin-left: 5px;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,7 +17,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 350px;
+  width: 225px;
   &:hover {
     opacity: 0.8;
   }
@@ -17,8 +26,11 @@
 .nav-link {
   font-size: 18px;
   font-weight: 700;
+  margin: 0px 3px 0px;
+  padding: 10px 8px 8px 8px;
   color: $dark-purple !important;
   &:hover {
     opacity: 0.8;
   }
 }
+

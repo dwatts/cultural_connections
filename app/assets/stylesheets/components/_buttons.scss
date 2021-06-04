@@ -3,23 +3,55 @@
   color: white;
   border: 0px solid gray;
   padding: 8px 24px;
-  border-radius: 15px;
-  font-weight: 300;
-  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+  font-weight: 600;
   opacity: 0.9;
   transition: opacity 0.3s ease;
 }
 
 .btn-simple:hover {
   opacity: 1;
+  color: white;
+  box-shadow: 0 0 23px rgba(126, 97, 97, 0.2);
+}
+
+.btn-action {
+  background-color: $teal;
+  color: white;
+  border: 0px solid gray;
+  padding: 4px 16px;
+  border-radius: 10px;
   font-weight: 400;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.btn-action:hover {
+  opacity: 1;
+  color: white;
+  box-shadow: 0 0 23px rgba(126, 97, 97, 0.2);
+}
+
+.btn-back {
+  background-color: $dark-purple;
+  color: white;
+  border: 0px solid gray;
+  padding: 8px 24px;
+  border-radius: 10px;
+  font-weight: 400;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.btn-back:hover {
+  opacity: 1;
   color: white;
   box-shadow: 0 0 23px rgba(126, 97, 97, 0.2);
 }
 
 .btn-ghost {
   color: #4A4A4A;
-  border: 1px solid #4A4A4A;
+  border: 0px solid #4A4A4A;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
