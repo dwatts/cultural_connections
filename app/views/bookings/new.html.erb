@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" data-turbolinks="false">
   <h3>Make a booking</h3>
   <br>
   <%= simple_form_for [ @activity, @booking ] do |f| %>
-    <%= f.input :date, label: 'On which date do you want to visit?'%>
+    <%= f.input :date, as: :string, label: 'On which date do you want to visit?', input_html: {class:"datepicker"} %>
     <%= f.input :number_of_people, label: "for how many people?"%>
     <%# <%= f.input :date, :as => :, :input_html => { :class => 'date_picker' } %>
 
