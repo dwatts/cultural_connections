@@ -1,12 +1,12 @@
 <div id="index-container">
-  <div class="row">
+  <div class="row align-items-center">
     <div class="col-7">
       <%= form_tag activities_path, method: :get do %>
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
               placeholder: "Enter a location or keyword",
-              style: "border-radius: 15px"
+              style: "border-radius: 10px"
              %>
     </div>
     <div class="col-5">
