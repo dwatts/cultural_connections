@@ -8,9 +8,7 @@
     <h6>Every day except Mondays <br>
        From 9.30 am to 6.00 pm
     </h6>
-    <p>⭐⭐⭐⭐⭐<br>
-      <strong>4.8</strong> out of <strong><%= pluralize @activity.reviews.count, 'rating' %></strong>
-    </p>
+    <%= render 'avg_rating' %>
     <div class="card-product">
       <img src="http://mt0.google.com/vt/lyrs=m@189000000&hl=en&src=api&x=4828&y=6162&z=14&s=Galile" />
       <div class="card-product-infos">
@@ -29,6 +27,16 @@
     <br>
       <%= render 'reviews' %>
     <br>
-    <%= link_to 'Write a review 🖊', new_activity_review_path(@activity), class: 'btn btn-simple my-3' %>
+    
+    <% if user_signed_in? %>
+      <div class="review-container border-top py-3">
+        <br>
+        <%= simple_form_for [ @activity, @review = Review.new ] do |f| %>
+          <%= f.input :stars, collection: (1..5).to_a, label: 'Rate your experience' %>
+          <%= f.input :comments, label: 'Send your review' %>
+          <%= f.submit "Submit review", class: "btn btn-simple my-3" %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
