@@ -1,31 +1,63 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div class="text-center">
+  <ol class="carousel-indicators">
+      <% imageNum = @activity.photos.size %>
+      <%  imageNum.times do |photo| %>
+        <% counter = 0 %>
+        <li data-target="#carouselExampleCaptions" data-slide-to="#{counter}" class="active"></li>
+        <% counter += 1 %>
+      <% end %>
+    </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="carousel-caption d-none d-md-block">
+        <h3 class="card-title"><%= @activity.name %></h3>
+      </div>
+      <%= cl_image_tag @activity.photos[0].key, height: 450, width: 850, crop: :fill%>
+    </div>
+      <% rest_photos = @activity.photos[1 .. -1] %>
+      <% rest_photos.each do |photo| %>
+      <div class="carousel-item">
+        <div class="carousel-caption d-none d-md-block">
+        <h3 class="card-title"><%= @activity.name %></h3>
+      </div>
+        <%= cl_image_tag photo.key, height: 450, width: 850, crop: :fill%>
+      </div>
+      <% end %>
+  </div>
+  </div>
+</div>
+
 <h1><%= @activity.name %></h1>
-   <% @activity.photos.each do |photo| %>
-    <%= cl_image_tag photo.key %>
-   <% end %>
    <%= link_to 'Book now!', new_activity_booking_path(@activity), class: 'btn btn-simple my-3' %>
-<div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1482245294234-b3f2f8d5f1a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80')">
-    <h1><%= @activity.name %></h1>
-    <button type="button" class="btn btn-simple my-3" data-toggle="modal" data-target="#exampleModal">
+
+    <button type="button" class="btn btn-simple my-3" data-toggle="modal">
       Book now!
     </button>
     <%= render 'confirmation' %>
-</div>
+
+<br>
+<br>
 
 <div class="container">
   <div class="main-info d-flex justify-content-between">
-    <h6>Every day except Mondays <br>
-       From 9.30 am to 6.00 pm
-    </h6>
-    <p>⭐⭐⭐⭐⭐<br>
+     <h6>Monday ---- Friday</h6>
+      <br>
+     <h6><%= @activity.opening_hours %></h6>
+     <p>⭐⭐⭐⭐⭐<br>
       <strong>4.8</strong> out of <strong>16 ratings</strong>
-    </p>
-    <div class="card-product">
+     </p>
+  </div>
+  <div class="card-product">
       <img src="http://mt0.google.com/vt/lyrs=m@189000000&hl=en&src=api&x=4828&y=6162&z=14&s=Galile" />
       <div class="card-product-infos">
         <p><%= @activity.address %></p>
       </div>
-    </div>
   </div>
+</div>
+
+
+
   <br>
   <br>
   <br>
@@ -39,4 +71,3 @@
     <br>
     <h3>Will definitely visit <%= @activity.name %> again!</h3>
   </div>
-</div>
