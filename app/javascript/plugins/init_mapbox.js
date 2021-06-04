@@ -18,8 +18,8 @@ const addMarkersToMap = (map, markers) => {
     element.className = 'marker';
     element.style.backgroundImage = `url('${marker.image_url}')`;
     element.style.backgroundSize = 'contain';
-    element.style.width = '40px';
-    element.style.height = '40px';
+    element.style.width = '30px';
+    element.style.height = '30px';
     element.style.opacity = '90%';
 
     new mapboxgl.Marker(element, {
@@ -29,8 +29,6 @@ const addMarkersToMap = (map, markers) => {
       .addTo(map);
   });
 };
-
-
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
