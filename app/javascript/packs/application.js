@@ -44,8 +44,5 @@ initSweetalert('#sweet-alert-demo', {
   icon: "success"
 });
 
-<<<<<<< HEAD
 initFlatpickr();
-=======
 initStarRating();
->>>>>>> master
