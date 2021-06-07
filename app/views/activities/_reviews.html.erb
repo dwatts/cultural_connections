@@ -4,7 +4,11 @@
   <%  @activity.reviews.each do |review| %>
     <div class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="text-left">
-        <h3>👥<strong><%= review.user.username %></strong></h3>
+        <h3>
+        <% if review.user.photo.attached? %>
+          <%= cl_image_tag review.user.photo.key, class: "avatar mb-3 mr-3" %>
+        <% end %>
+        <strong><%= review.user.username %></strong></h3>
         <%= "⭐️" * review.stars%>
         <h3><%= review.comments %></h3>
       </div>
