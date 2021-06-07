@@ -1,10 +1,16 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+url('<%= cl_image_path @activity.banner_photo.key, width: 1130, crop: :fill %>')">
+    <h1><%= @activity.name %></h1>
+    <%= link_to 'Book now!', new_activity_booking_path(@activity), class: 'btn btn-simple my-3', data: { turbolinks: false } %>
+</div>
+
+<div id="carouselActivityPhotos" class="carousel slide" data-ride="carousel">
   <div class="text-center">
   <ol class="carousel-indicators">
       <% imageNum = @activity.photos.size %>
       <%  imageNum.times do |photo| %>
         <% counter = 0 %>
-        <li data-target="#carouselExampleCaptions" data-slide-to="#{counter}" class="active"></li>
+        <li data-target="#carouselActivityPhotos" data-slide-to="#{counter}" class="active"></li>
         <% counter += 1 %>
       <% end %>
     </ol>
@@ -19,20 +25,16 @@
       <% rest_photos.each do |photo| %>
       <div class="carousel-item">
         <div class="carousel-caption d-none d-md-block">
-        <h3 class="card-title"><%= @activity.name %></h3>
-      </div>
-        <%= cl_image_tag photo.key, height: 450, width: 850, crop: :fill%>
+          <h3 class="card-title"><%= @activity.name %></h3>
+        </div>
+          <%= cl_image_tag photo.key, height: 450, width: 850, crop: :fill%>
       </div>
       <% end %>
   </div>
   </div>
 </div>
-<!-- background img will be replaced by cloudinary photos -->
-<div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1482245294234-b3f2f8d5f1a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80')">
-    <h1><%= @activity.name %></h1>
-    <%= link_to 'Book now!', new_activity_booking_path(@activity), class: 'btn btn-simple my-3', data: { turbolinks: false } %>
-</div>
-
+<br>
+<br>
 <div class="container">
   <div class="main-info d-flex justify-content-between">
     <h6>Every day except Mondays <br>
