@@ -3,7 +3,7 @@
   <br>
   <%= simple_form_for(@activity) do |f| %>
     <%= f.input :name, label: 'What is the name of your institution'%>
-    
+    <%= f.input :username %>
     <%= f.input :address, label: "What's the address?", placeholder: "Königsplatz"%>
     <%= f.input :description %>
     <%= f.input :price %>
