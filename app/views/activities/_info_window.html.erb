@@ -1,4 +1,5 @@
-<img class="popupImg" src="https://images.unsplash.com/photo-1603823529430-2cf7e72d13fd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bXVzZXVtJTIwb2YlMjBhY3JvcG9saXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Girl in a jacket">
+
+<%= cl_image_tag activity.banner_photo.key, class:'popupImg', :transformation => {:width => 330, :crop => "pad"} %>
 <h3><%= activity.name %></h3>
 <hr>
 <p><strong><%= activity.address %></strong></p>
