@@ -47,6 +47,11 @@ class ActivitiesController < ApplicationController
   def show
   end
 
+  def my_activities
+    @activities = current_user.provided_activities
+    authorize Activity
+  end
+
   def new
     @activity = Activity.new
     authorize @activity

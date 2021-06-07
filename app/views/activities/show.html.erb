@@ -27,7 +27,6 @@ url('<%= cl_image_path @activity.banner_photo.key, width: 1130, crop: :fill %>')
         <%= link_to activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id }  do %>
               <i class="far fa-heart"></i>
         <% end %>
-      <%# <%= link_to 'Add to favorites ❤', activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id } %>
       <% end %>
   </div>
 
