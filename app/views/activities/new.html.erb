@@ -3,12 +3,15 @@
   <br>
   <%= simple_form_for(@activity) do |f| %>
     <%= f.input :name, label: 'What is the name of your institution'%>
-    
+    <%= f.input :opening_hours, label: 'When is the opening time' %>
+    <%= f.input :contact_number, label: 'contact info' %>
     <%= f.input :address, label: "What's the address?", placeholder: "Königsplatz"%>
     <%= f.input :description %>
     <%= f.input :price %>
     <%= f.input :duration %>
     <%= f.input :available_spots %>
+    <%= f.input :banner_photo, as: :file, label: "You can choose one main picture." %>
+    <%= f.input :photos, as: :file, label: "You can choose up to 3 additional pictures.", input_html: { multiple: true } %>
     <%= f.submit "Submit", class: "btn btn-confirm" %>
   <% end %>
 </div>

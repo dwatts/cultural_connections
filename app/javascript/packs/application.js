@@ -40,9 +40,10 @@ document.addEventListener('turbolinks:load', () => {
 
 initSweetalert('#sweet-alert-demo', {
   title: "Confirmation",
-  text: "You're booking was successful!",
+  text: "Your booking was successful!",
   icon: "success"
 });
+
 
 initFlatpickr();
 initStarRating();
