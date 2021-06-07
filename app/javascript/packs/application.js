@@ -46,6 +46,4 @@ initSweetalert('#sweet-alert-demo', {
 
 
 initFlatpickr();
-
 initStarRating();
-
