@@ -3,6 +3,11 @@
 <hr>
 <p><strong><%= activity.address %></strong></p>
 <div class="d-flex justify-content-between align-items-center">
-<p><strong>Duration</strong> <i class="fas fa-clock"></i> <%= activity.duration %> hrs</p>
-<p><strong>Price</strong> <i class="fas fa-dollar-sign"></i> <%= activity.price %></p>
+<p><strong>Duration</strong> <i class="fas fa-clock"></i> <%= activity.duration.round(0) %> hour<%='s' if activity.duration > 1 %></p>
+<p><% if activity.price == 0 %>
+    <strong>Price</strong> FREE
+  <% else %>
+    <strong>Price</strong> <i class="fas fa-dollar-sign"></i> <%= activity.price.round(0) %>
+  <% end %>
+</p>
 </div>

@@ -1,0 +1,13 @@
+<% ratings = [] %>
+<% @activity.reviews.each do |rating| %>
+  <% ratings.push(rating.stars) %>
+<% end %>
+      
+<% if ratings.empty? %>
+  <h6>No ratings yet!</h6>
+<% else %>
+  <% average = (ratings.sum.to_f / ratings.length) %>
+    <div>
+      <h6><%= "⭐️" * average %> <strong><%=average%></strong> out of <%= pluralize @activity.reviews.count, 'rating' %></h6>
+    </div>
+<% end %>
