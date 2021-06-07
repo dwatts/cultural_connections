@@ -23,6 +23,12 @@ url('<%= cl_image_path @activity.banner_photo.key, width: 1130, crop: :fill %>')
 
   <div class="description mb-4">
     <h6><%= @activity.description %></h6>
+      <% unless current_user.favorites.where(activity_id: @activity.id).exists? %>
+        <%= link_to activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id }  do %>
+              <i class="far fa-heart"></i>
+        <% end %>
+      <%# <%= link_to 'Add to favorites ❤', activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id } %>
+      <% end %>
   </div>
 
 <div id="carouselActivityPhotos" class="carousel slide" data-ride="carousel">
