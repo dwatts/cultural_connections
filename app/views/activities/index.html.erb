@@ -17,7 +17,7 @@
   </div>
   <br>
   <div class="row">
-    <div class="col-7 index-cards">
+    <div class="col-lg-7 col-md-12 index-cards">
       <% if @activities.empty? %>
         <h2>Sorry, we couldn't find any matches to your search</h2>
         <h2>Please try again with different search terms</h2>
@@ -39,7 +39,7 @@
               <hr>
               <div class="index-card-grid">
               <h3><%= activity.address %></h3>
-              <h3><%= activity.duration.round(0) %> Hour<%='s' if activity.duration > 1 %></h3>
+              <h3><i class="fas fa-clock"></i> <%= activity.duration.round(0) %> Hour<%='s' if activity.duration > 1 %></h3>
               </div>
               <p><%= activity.description %></p>
             </div>
