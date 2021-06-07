@@ -15,6 +15,17 @@
   box-shadow: 0 0 23px rgba(126, 97, 97, 0.2);
 }
 
+.btn-dashboard {
+  background-color: $gold;
+  color: white;
+  border: 0px solid gray;
+  border-radius: 10px;
+  font-weight: 600;
+  opacity: 0.9;
+  padding: 8px 24px;
+  transition: opacity 0.3s ease;
+}
+
 .btn-action {
   background-color: $teal;
   color: white;
