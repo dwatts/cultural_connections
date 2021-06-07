@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>My favorites</h1>
+  <br>
+  <% if current_user.favorites.blank? %>
+    <h5>Nothing saved yet</h5>
+    <h6>When you find something you like, click the heart icon to save it.</h6>
+    <br>
+    <%= link_to 'Start exploring!', activities_path, class: "btn-simple" %>
+  <% else %>
+    <% current_user.favorites.each do |favorite| %>
+      <div class="card-trip">
+        <img src="https://images.unsplash.com/photo-1482245294234-b3f2f8d5f1a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= favorite.activity.name%></h2>
+            <p><%= favorite.activity.description %></p>
+          </div>
+          <div>
+            <%= link_to "Details", activity_path(favorite.activity), class: "btn-simple"%>
+          </div>
+        </div>
+        <div>
+          <%= link_to favorite_path(favorite),
+                method: :delete, remote: true do %>
+            <i class="fas fa-heart fa-2x"></i>
+          <% end %>
+        </div>
+      </div>
+      <br>
+    <% end %>
+  <% end %>
+</div>
