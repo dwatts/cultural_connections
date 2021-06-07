@@ -1,17 +1,22 @@
 User.destroy_all
 Activity.destroy_all
+Category.destroy_all
 
 puts "users and activities were deleted"
 
-puts "creating users and activities"
+puts "creating users activities and categories"
 
-userone = User.create ({email: 'francesca@cc.club', username: 'Franci', password: '123456'})
-userone.save!
-usertwo = User.create ({email: 'daniel@cc.club', username: 'Dan', password: 'lewagon'})
-usertwo.save!
+freeCategory = Category.create!(name: "Free")
+childFriendlyCategory = Category.create!(name: "Child friendly")
+
+
+userone = User.create!({email: 'francesca@cc.club', username: 'Franci', password: '123456'})
+usertwo = User.create!({email: 'daniel@cc.club', username: 'Dan', password: 'lewagon'})
 
 eldridge = Activity.new({name: 'Museum at Eldridge Street', address: '12 Eldridge Street New York, NY 10002', description: 'The Museum at Eldridge Street is housed in the Eldridge Street Synagogue, a magnificent National Historic Landmark that has been meticulously restored.', user: usertwo, price: 15, duration: 1, available_spots: 20, opening_hours: '10:00 am - 5:00 pm', contact_number: '212-219-0302' })
 eldridge.save!
+eldridge.categories << freeCategory
+eldridge.categories << childFriendlyCategory
 
 dyckman = Activity.new({name: 'Dyckman Farmhouse Museum Alliance', address: '4881 Broadway, New York, NY 10034', description: 'The Dyckman Farmhouse was home to the Dyckman family for almost a century. It opened as a museum in 1916 and continues to serve the community in a half-acre park.', user: usertwo, price: 6, duration: 1, available_spots: 5, opening_hours: '10:00 am - 1:00 pm', contact_number: '212-304-9422' })
 dyckman.save!

@@ -23,6 +23,7 @@
   margin: 15px 0px 15px 0px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
+  padding: 0px;
 }
 
 #map {
@@ -33,6 +34,16 @@
 }
 
 .select2 {
-  width: 200px !important;
+  width: 75% !important;
   padding-right: 20px;
+  border-radius: 10px;
+  height: 40px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    // padding: 8px;
+    // border: 1px solid lightgrey !important;
+    // background: white;
+    // padding: 4px;
 }
+
+
+

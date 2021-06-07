@@ -23,27 +23,26 @@
         <h2>Please try again with different search terms</h2>
       <% else %>
         <% @activities.each do |activity| %>
-          <div class="index-card-product">
-            
-            <%= link_to image_tag("https://images.unsplash.com/photo-1612259634947-d395cc7da87d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bXVzZXVtJTIwYnVpbGRpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"), activity_path(activity), class:"card-link", data: { turbolinks: false } %>
-            <div class="index-card-product-infos">
-              <div class="index-card-grid">
-                <h2><%= activity.name %></h2>
-                <h2><% if activity.price == 0 %>
-                      FREE
-                    <% else %>
-                      <i class="fas fa-dollar-sign" aria-hidden="true"></i> <%= activity.price.round(0) %>
-                    <% end %>
-                </h2>
+          <%= link_to activity_path(activity), class: "index-card-product" do%>
+              
+              <div class="index-card-product-infos">
+                <div class="index-card-grid">
+                  <h2><%= activity.name %></h2>
+                  <h2><% if activity.price == 0 %>
+                        FREE
+                      <% else %>
+                        <i class="fas fa-dollar-sign" aria-hidden="true"></i> <%= activity.price.round(0) %>
+                      <% end %>
+                  </h2>
+                </div>
+                <hr>
+                <div class="index-card-grid">
+                <h3><%= activity.address %></h3>
+                <h3><%= activity.duration.round(0) %> Hour<%='s' if activity.duration > 1 %></h3>
+                </div>
+                <p><%= activity.description %></p>
               </div>
-              <hr>
-              <div class="index-card-grid">
-              <h3><%= activity.address %></h3>
-              <h3><%= activity.duration.round(0) %> Hour<%='s' if activity.duration > 1 %></h3>
-              </div>
-              <p><%= activity.description %></p>
-            </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
@@ -58,3 +57,6 @@
 
   </div>
 </div>
+
+
+<%# <%image_tag("https://images.unsplash.com/photo-1612259634947-d395cc7da87d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bXVzZXVtJTIwYnVpbGRpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"), activity_path(activity), class:"card-link", data: { turbolinks: false } %> %>
