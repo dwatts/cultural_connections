@@ -23,11 +23,12 @@ url('<%= cl_image_path @activity.banner_photo.key, width: 1130, crop: :fill %>')
 <div class="container">
   <div class="description mb-4">
     <h6><%= @activity.description %></h6>
-      <% unless current_user.favorites.where(activity_id: @activity.id).exists? %>
-        <%= link_to activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id }  do %>
-              <i class="far fa-heart"></i>
+      <% if user_signed_in?%>
+        <% unless current_user.favorites.where(activity_id: @activity.id).exists? %>
+          <%= link_to activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id }  do %>
+                <i class="far fa-heart"></i>
+          <% end %>
         <% end %>
-      <%# <%= link_to 'Add to favorites ❤', activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id } %>
       <% end %>
   </div>
 </div>
@@ -57,21 +58,21 @@ url('<%= cl_image_path @activity.banner_photo.key, width: 1130, crop: :fill %>')
 <br>
 <br>
 <div class="container">
-<div class="text-center border-top py-4">
-  <h3><strong>What people say about <%= @activity.name %>:</strong></h3>
-  <br>
-    <%= render 'reviews' %>
-  <br>
+  <div class="text-center border-top py-4">
+    <h3><strong>What people say about <%= @activity.name %>:</strong></h3>
+    <br>
+      <%= render 'reviews' %>
+    <br>
 
-  <% if user_signed_in? %>
-    <div class="review-container border-top py-3">
-      <br>
-      <%= simple_form_for [ @activity, @review = Review.new ] do |f| %>
-        <%= f.input :stars, collection: (1..5).to_a, label: 'Rate your experience' %>
-        <%= f.input :comments, label: 'Send your review' %>
-        <%= f.submit "Submit review", class: "btn btn-simple my-3" %>
-      <% end %>
-    </div>
-       <% end %>
-</div>
+    <% if user_signed_in? %>
+      <div class="review-container border-top py-3">
+        <br>
+        <%= simple_form_for [ @activity, @review = Review.new ] do |f| %>
+          <%= f.input :stars, collection: (1..5).to_a, label: 'Rate your experience' %>
+          <%= f.input :comments, label: 'Send your review' %>
+          <%= f.submit "Submit review", class: "btn btn-simple my-3" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
