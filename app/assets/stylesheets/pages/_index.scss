@@ -33,4 +33,14 @@
   height: 220px;
 }
 
+.select2 {
+  width: 200px !important;
+  padding-right: 20px;
+}
 
+@media (max-width: 900px) {
+  .map {
+    display: none;
+  }
+
+}
