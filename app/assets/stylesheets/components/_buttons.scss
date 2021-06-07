@@ -60,6 +60,23 @@
   box-shadow: 0 0 23px rgba(126, 97, 97, 0.2);
 }
 
+.btn-map {
+  background-color: $gold;
+  color: white;
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-weight: 400;
+  font-size: 12px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.btn-map:hover {
+  opacity: 0.9;
+  color: white;
+  box-shadow: 0 0 23px rgba(126, 97, 97, 0.2);
+}
+
 .btn-ghost {
   color: #4A4A4A;
   border: 0px solid #4A4A4A;
