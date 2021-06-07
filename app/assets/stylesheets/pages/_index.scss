@@ -36,3 +36,10 @@
   width: 200px !important;
   padding-right: 20px;
 }
+
+@media (max-width: 900px) {
+  .map {
+    display: none;
+  }
+
+}
