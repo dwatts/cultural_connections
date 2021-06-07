@@ -21,6 +21,12 @@
   <br>
   <div class="description mb-4">
     <h6><%= @activity.description %></h6>
+      <% unless current_user.favorites.where(activity_id: @activity.id).exists? %>
+        <%= link_to activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id }  do %>
+              <i class="far fa-heart"></i>
+        <% end %>
+      <%# <%= link_to 'Add to favorites ❤', activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id } %>
+      <% end %>
   </div>
   <div class="text-center border-top py-4">
     <h3><strong>What people say about <%= @activity.name %>:</strong></h3>
