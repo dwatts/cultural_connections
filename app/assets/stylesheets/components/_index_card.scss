@@ -1,6 +1,7 @@
 .index-card-product {
   overflow: hidden;
   height: 220px;
+  min-width: 300px;
   background: $baby-blue;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
