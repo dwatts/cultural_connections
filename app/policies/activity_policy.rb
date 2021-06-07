@@ -9,11 +9,15 @@ class ActivityPolicy < ApplicationPolicy
     true
   end
 
-  def create?
+  def my_activities?
     true
   end
 
+  def create?
+    user.provider
+  end
+
   def update?
-    record.user == user
+    record.provider == user
   end
 end

@@ -47,6 +47,11 @@ class ActivitiesController < ApplicationController
   def show
   end
 
+  def my_activities
+    @activities = current_user.provided_activities
+    authorize Activity
+  end
+
   def new
     @activity = Activity.new
     authorize @activity
@@ -54,8 +59,8 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
-    @user = current_user
-    @activity.user = @user
+    @provider = current_user
+    @activity.provider = @provider
     authorize @activity
     if @activity.save
       redirect_to activity_path(@activity)

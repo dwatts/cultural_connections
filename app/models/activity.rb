@@ -1,5 +1,5 @@
 class Activity < ApplicationRecord
-  belongs_to :user
+  belongs_to :provider, class_name: 'User', foreign_key: :user_id
   has_many_attached :photos
   has_one_attached :banner_photo
   has_many :activity_categories

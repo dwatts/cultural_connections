@@ -11,60 +11,53 @@ url('<%= cl_image_path @activity.banner_photo.key, width: 1130, crop: :fill %>')
     </h6>
     <%= render 'avg_rating' %>
     <div class="card-product">
-
       <img src="http://mt0.google.com/vt/lyrs=m@189000000&hl=en&src=api&x=4828&y=6162&z=14&s=Galile" />
       <div class="card-product-infos">
         <p><%= @activity.address %></p>
       </div>
+    </div>
   </div>
 </div>
   <br>
   <br>
-
+<div class="container">
   <div class="description mb-4">
     <h6><%= @activity.description %></h6>
-      <% unless current_user.favorites.where(activity_id: @activity.id).exists? %>
-        <%= link_to activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id }  do %>
-              <i class="far fa-heart"></i>
+      <% if user_signed_in?%>
+        <% unless current_user.favorites.where(activity_id: @activity.id).exists? %>
+          <%= link_to activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id }  do %>
+                <i class="far fa-heart"></i>
+          <% end %>
         <% end %>
-      <%# <%= link_to 'Add to favorites ❤', activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id } %>
       <% end %>
   </div>
-
+</div>
 <div id="carouselActivityPhotos" class="carousel slide" data-ride="carousel">
   <div class="text-center">
-  <ol class="carousel-indicators">
-      <% imageNum = @activity.photos.size %>
-      <%  imageNum.times do |photo| %>
+      <ol class="carousel-indicators">
+        <% imageNum = @activity.photos.size %>
+        <%  imageNum.times do |photo| %>
         <% counter = 0 %>
-        <li data-target="#carouselActivityPhotos" data-slide-to="#{counter}" class="active"></li>
+          <li data-target="#carouselActivityPhotos" data-slide-to="#{counter}" class="active"></li>
         <% counter += 1 %>
-      <% end %>
-    </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="carousel-caption d-none d-md-block">
-        <h3 class="card-title"><%= @activity.name %></h3>
+        <% end %>
+      </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= cl_image_tag @activity.photos[0].key, height: 450, width: 850, crop: :fill%>
       </div>
-      <%= cl_image_tag @activity.photos[0].key, height: 450, width: 850, crop: :fill%>
-    </div>
-      <% rest_photos = @activity.photos[1 .. -1] %>
-      <% rest_photos.each do |photo| %>
+        <% rest_photos = @activity.photos[1 .. -1] %>
+        <% rest_photos.each do |photo| %>
       <div class="carousel-item">
-        <div class="carousel-caption d-none d-md-block">
-          <h3 class="card-title"><%= @activity.name %></h3>
-        </div>
           <%= cl_image_tag photo.key, height: 450, width: 850, crop: :fill%>
       </div>
       <% end %>
-  </div>
+    </div>
   </div>
 </div>
 <br>
 <br>
-
-
-
+<div class="container">
   <div class="text-center border-top py-4">
     <h3><strong>What people say about <%= @activity.name %>:</strong></h3>
     <br>
@@ -82,3 +75,4 @@ url('<%= cl_image_path @activity.banner_photo.key, width: 1130, crop: :fill %>')
       </div>
     <% end %>
   </div>
+</div>
