@@ -1,5 +1,5 @@
 
-<%# <%= cl_image_tag activity.banner_photo.key, class:'popupImg', :transformation => {:width => 330, :crop => "pad"} %> %>
+<%= cl_image_tag activity.banner_photo.key, class:'popupImg', :transformation => {:width => 330, :crop => "pad"} %>
 <h3><%= activity.name %></h3>
 <hr>
 <p><strong><%= activity.address %></strong></p>
@@ -7,7 +7,7 @@
 <p><strong>Duration</strong> <i class="fas fa-clock"></i> <%= activity.duration.round(0) %> hour<%='s' if activity.duration > 1 %></p>
 <p><% if activity.price == 0 %>
     <strong>Price</strong> FREE
-  <% else %>
+  <% else %>x
     <strong>Price</strong> <i class="fas fa-dollar-sign"></i> <%= activity.price.round(0) %>
   <% end %>
 </p>

@@ -46,7 +46,7 @@ url('<%= cl_image_path @activity.banner_photo.key, width: 1130, crop: :fill %>')
       <div class="carousel-caption d-none d-md-block">
         <h3 class="card-title"><%= @activity.name %></h3>
       </div>
-      <%= cl_image_tag @activity.photos[0].key, height: 450, width: 850, crop: :fill%>
+      <%= cl_image_tag @activity.photos[0].key, height: 450, width: 850, crop: :fill %>
     </div>
       <% rest_photos = @activity.photos[1 .. -1] %>
       <% rest_photos.each do |photo| %>
@@ -54,7 +54,7 @@ url('<%= cl_image_path @activity.banner_photo.key, width: 1130, crop: :fill %>')
         <div class="carousel-caption d-none d-md-block">
           <h3 class="card-title"><%= @activity.name %></h3>
         </div>
-          <%= cl_image_tag photo.key, height: 450, width: 850, crop: :fill%>
+          <%= cl_image_tag photo.key, height: 450, width: 850, crop: :fill %>
       </div>
       <% end %>
   </div>
