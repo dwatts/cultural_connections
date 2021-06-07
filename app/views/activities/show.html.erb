@@ -4,6 +4,27 @@ url('<%= cl_image_path @activity.banner_photo.key, width: 1130, crop: :fill %>')
     <%= link_to 'Book now!', new_activity_booking_path(@activity), class: 'btn btn-simple my-3', data: { turbolinks: false } %>
 </div>
 
+<div class="container">
+  <div class="main-info d-flex justify-content-between">
+    <h6>Every day except Mondays <br>
+       From 9.30 am to 6.00 pm
+    </h6>
+    <%= render 'avg_rating' %>
+    <div class="card-product">
+
+      <img src="http://mt0.google.com/vt/lyrs=m@189000000&hl=en&src=api&x=4828&y=6162&z=14&s=Galile" />
+      <div class="card-product-infos">
+        <p><%= @activity.address %></p>
+      </div>
+  </div>
+</div>
+  <br>
+  <br>
+
+  <div class="description mb-4">
+    <h6><%= @activity.description %></h6>
+  </div>
+
 <div id="carouselActivityPhotos" class="carousel slide" data-ride="carousel">
   <div class="text-center">
   <ol class="carousel-indicators">
@@ -35,29 +56,9 @@ url('<%= cl_image_path @activity.banner_photo.key, width: 1130, crop: :fill %>')
 </div>
 <br>
 <br>
-<div class="container">
-  <div class="main-info d-flex justify-content-between">
-    <h6>Every day except Mondays <br>
-       From 9.30 am to 6.00 pm
-    </h6>
-    <%= render 'avg_rating' %>
-    <div class="card-product">
-
-      <img src="http://mt0.google.com/vt/lyrs=m@189000000&hl=en&src=api&x=4828&y=6162&z=14&s=Galile" />
-      <div class="card-product-infos">
-        <p><%= @activity.address %></p>
-      </div>
-  </div>
-</div>
 
 
 
-  <br>
-  <br>
-  <br>
-  <div class="description mb-4">
-    <h6><%= @activity.description %></h6>
-  </div>
   <div class="text-center border-top py-4">
     <h3><strong>What people say about <%= @activity.name %>:</strong></h3>
     <br>
