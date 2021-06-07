@@ -24,24 +24,24 @@
       <% else %>
         <% @activities.each do |activity| %>
           <%= link_to activity_path(activity), class: "index-card-product" do%>
-              
-              <div class="index-card-product-infos">
-                <div class="index-card-grid">
-                  <h2><%= activity.name %></h2>
-                  <h2><% if activity.price == 0 %>
-                        FREE
-                      <% else %>
-                        <i class="fas fa-dollar-sign" aria-hidden="true"></i> <%= activity.price.round(0) %>
-                      <% end %>
-                  </h2>
-                </div>
-                <hr>
-                <div class="index-card-grid">
-                <h3><%= activity.address %></h3>
-                <h3><%= activity.duration.round(0) %> Hour<%='s' if activity.duration > 1 %></h3>
-                </div>
-                <p><%= activity.description %></p>
+            <%# <% <%= cl_image_tag activity.banner_photo.key, crop: :fill %>
+            <div class="index-card-product-infos">
+              <div class="index-card-grid">
+                <h2><%= activity.name %></h2>
+                <h2><% if activity.price == 0 %>
+                      FREE
+                    <% else %>
+                      <i class="fas fa-dollar-sign" aria-hidden="true"></i> <%= activity.price.round(0) %>
+                    <% end %>
+                </h2>
               </div>
+              <hr>
+              <div class="index-card-grid">
+              <h3><%= activity.address %></h3>
+              <h3><%= activity.duration.round(0) %> Hour<%='s' if activity.duration > 1 %></h3>
+              </div>
+              <p><%= activity.description %></p>
+            </div>
           <% end %>
         <% end %>
       <% end %>
