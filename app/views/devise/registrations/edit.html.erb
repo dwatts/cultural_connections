@@ -26,11 +26,11 @@
        <%= f.input :photo, as: :file,
                   required: false,
                   autofocus: true,
-                  label: 'Add a Profile Picture' %>
+                  label: 'Add a Profile Picture', class: "avatar" %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Update" %>
+      <%= f.button :submit, "Update", class:"btn btn-action my-3" %>
     </div>
   <% end %>
 

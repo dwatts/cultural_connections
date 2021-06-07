@@ -37,7 +37,7 @@
             <% else %>
               <%= link_to "Bookings", dashboard_path, class: "dropdown-item" %>
               <%= link_to "Favorites", favorites_path, class: "dropdown-item" %>
-              <%= link_to "Edit your profile", "users/edit", class: "dropdown-item" %>
+              <%= link_to "Edit your profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             <% end %>
           </div>
