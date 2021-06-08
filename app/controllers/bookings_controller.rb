@@ -1,8 +1,14 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:show, :edit, :update]
+  
   def new
     @booking = Booking.new
     @activity = Activity.find(params[:activity_id])
     authorize @booking
+  end
+
+  def show
+    @markers = [{ lat: @booking.activity.latitude, lng: @booking.activity.longitude, image_url: helpers.asset_url('new_icon.png') }]
   end
 
   def create
@@ -13,25 +19,26 @@ class BookingsController < ApplicationController
     @booking.status = true
     authorize @booking
     if @booking.save
-      redirect_to activity_path(@booking.activity)
+      redirect_to booking_path(@booking), notice: "Reservation created!"
     else
       render :new
     end
   end
 
   def edit
-    @booking = Booking.find(params[:id])
-    authorize @booking
   end
 
   def update
-    @booking = Booking.find(params[:id])
-    authorize @booking
     @booking.update(booking_params)
-    redirect_to dashboard_path
+    redirect_to dashboard_path, notice: "Reservation cancelled!"
   end
 
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
 
   def booking_params
     params.require(:booking).permit(:date, :number_of_people, :status)
