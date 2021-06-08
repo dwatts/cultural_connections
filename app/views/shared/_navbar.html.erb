@@ -12,7 +12,9 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <% if policy(Activity).create? %>
-          <h3 class="badge badge-secondary">Provider</h3>
+          <div id="Provider">
+            <h6>Provider</h6>
+          </div>
         <% else %>
           <li class="nav-item">
             <%= link_to favorites_path do %>
