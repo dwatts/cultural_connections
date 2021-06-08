@@ -1,4 +1,4 @@
-<% upcomingbookings = []
+<% upcomingbookings = [] %>
 <% current_user.bookings.each do |booking| %>
   <% if booking.date >= Date.today && booking.status == true %>
     <% upcomingbookings << booking.name %>
@@ -20,4 +20,9 @@
     <br>
   <% end %>
 <% end %>
-<p><%='no upcoming bookings' if upcomingbookings.length == 0%></p>
+<% if upcomingbookings.length == 0%>
+  <h5>No upcoming bookings</h5>
+  <h6>When you make a booking, it will be shown here.</h6>
+  <br>
+  <%= link_to 'Start exploring!', activities_path, class: "btn-simple" %>
+<% end %>
