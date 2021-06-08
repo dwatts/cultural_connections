@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @markers = [{ lat: @booking.activity.latitude, lng: @booking.activity.longitude, image_url: helpers.asset_url('new_icon.png') }]
   end
 
   def create

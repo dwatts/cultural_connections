@@ -4,7 +4,7 @@
     url('<%= cl_image_path @booking.activity.banner_photo.key, width: 1130, crop: :fill %>')">
   </div>
 
-  <h2>Your Reservation for <%= @booking.activity.name %> is confirmed!</h1>
+  <h2>Your Reservation for <%= @booking.activity.name %> is confirmed! <i class="fas fa-check"></i></h2>
   <br>
 
   <h2><strong>Reservation Details</strong></h2>
@@ -20,7 +20,10 @@
     <h6><%= @booking.activity.address %></h6>
     <br>
     <div class="border p-4">
-      <h2>Specific map with one marker</h2>
+      <div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
   </div>
 </div>
