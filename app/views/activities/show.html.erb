@@ -36,7 +36,11 @@ url('<%= cl_image_path @activity.banner_photo.key, crop: :fill %>')">
         <p><i class="fas fa-map-pin"></i>       <strong> <%= @activity.address %></p></strong>
         <p><i class="fas fa-phone"></i>      <strong> <%= @activity.contact_number %></p></strong>
         <p><i class="fas fa-envelope"></i>      <strong> <%= @activity.name.downcase.gsub(/\s+/, "")%>@cc.club</p></strong>
-        <p><i class="fas fa-dollar-sign"></i>      <strong> <%= @activity.price.round(0) %></p></strong>
+        <p><i class="fas fa-dollar-sign"></i><% if @activity.price == 0 %>
+               <strong> FREE </strong>
+              <% else %>
+                <strong> <%= @activity.price.round(0) %> </strong>
+              <% end %></p>
 
       </div>
     </div>
