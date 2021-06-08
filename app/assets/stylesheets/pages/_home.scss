@@ -1,1 +1,42 @@
 // Specific CSS for your home-page
+
+h1 {
+  font-size: 60px !important;
+  font-weight: 700;
+  color: $baby-blue;
+  padding-bottom: 7px !important;
+}
+
+h2 {
+  font-size: 45px !important;
+  font-weight: 300;
+  padding-bottom: 20px;
+  color: $gold
+}
+
+.card-title {
+  color: #dbf6e9 !important;
+  font-size: 27px !important;
+  font-weight: 600 !important;
+}
+
+.carousel-title {
+  color: #31326f !important;
+  font-size: 28px !important;
+  font-weight: 300!important;
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
+
+.carousel-img {
+  border-radius: 4px;
+  -webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */
+  filter: blur(2px);
+}
+
+.fas {
+  font-size: 200px;
+  padding-bottom: 60px;
+  color: #dbf6e9;
+}
