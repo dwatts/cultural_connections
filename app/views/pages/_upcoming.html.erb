@@ -10,7 +10,7 @@
           <p><%= booking.activity.description %></p>
         </div>
         <div>
-          <h2 class="card-trip-pricing"><%= booking.activity.price %>$</h2>
+          <%= link_to "Details", booking_path(booking), class: "btn-simple"%>
           <small><%= link_to "Cancel", [booking, { booking: { status: 'false' }}], 
             method: 'patch', remote: true, style:"color:#FF0000;",
             data: { confirm: "Are you sure you want to cancel your booking at #{booking.activity.name}?" } %></small>
