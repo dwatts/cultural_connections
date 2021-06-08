@@ -1,7 +1,7 @@
 <div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
 url('<%= cl_image_path @activity.banner_photo.key, width: 1130, crop: :fill %>')">
     <h1><%= @activity.name %></h1>
-    <%= link_to 'Book now!', new_activity_booking_path(@activity), class: 'btn btn-simple my-3', data: { turbolinks: false } %>
+    <%= link_to 'Reserve now!', new_activity_booking_path(@activity), class: 'btn btn-simple my-3', data: { turbolinks: false } %>
 </div>
 
 <div class="container">

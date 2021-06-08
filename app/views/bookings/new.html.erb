@@ -1,13 +1,15 @@
 <div class="container">
   <br>
-  <h3>Make a booking</h3>
+  <h2>Make a reservation</h3>
+  <br>
+  <h6>Dear <%= current_user.username %>, you are welcome to reserve tickets for up to 10 people via our app. For a reservation for 11 people and more, we would like to ask you to call us at <%= @activity.contact_number %>.</h6>
   <br>
   <%= simple_form_for [ @activity, @booking ] do |f| %>
     <%= f.input :date, as: :string, label: 'On which date do you want to visit?', input_html: {class:"datepicker"} %>
-    <%= f.input :number_of_people, label: "for how many people?"%>
+    <%= f.input :number_of_people, collection: (1..10).to_a, label: "For how many people?"%>
     <%# <%= f.input :date, :as => :, :input_html => { :class => 'date_picker' } %>
 
-    <%= f.submit "Book now!", class: "btn btn-simple my-3" %>
+    <%= f.submit "Reserve now!", class: "btn btn-simple my-3" %>
     <%# <%= f.submit "Confirm booking!", class: "btn btn-simple my-3", data: { target: "#exampleModal", toggle: "modal", dismiss: "modal" }%>
     <%# <%= render 'confirmation' %>
   <% end %>
