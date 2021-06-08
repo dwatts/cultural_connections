@@ -1,6 +1,6 @@
 .index-card-product {
   overflow: hidden;
-  height: 220px;
+  height: 200px;
   min-width: 300px;
   background: $baby-blue;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -8,7 +8,7 @@
   align-items: center;
   border-radius: 5px;
   &:hover {
-    opacity: 0.9;
+    opacity: 0.8;
     cursor: pointer;
   }
   hr {
@@ -18,7 +18,7 @@
 
 .index-card-product img {
   height: 100%; 
-  max-width: 220px;
+  width: 25%;
   object-fit: cover;
   border-radius: 5px 0px 0px 5px;
 }
@@ -42,3 +42,5 @@
     color: black; 
   }
 }
+
+
