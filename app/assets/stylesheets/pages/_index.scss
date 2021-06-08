@@ -23,6 +23,7 @@
   margin: 15px 0px 15px 0px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
+  padding: 0px;
 }
 
 #map {
@@ -32,10 +33,6 @@
   height: 220px;
 }
 
-.select2 {
-  width: 200px !important;
-  padding-right: 20px;
-}
 
 @media (max-width: 900px) {
   .map {

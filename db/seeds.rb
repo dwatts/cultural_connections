@@ -6,7 +6,7 @@ Category.destroy_all
 
 puts "users,activities and categories were deleted"
 
-puts "creating users and activities"
+puts "creating users activities and categories"
 
 artCategory = Category.create!(name: "Art")
 cemeteryCategory = Category.create!(name: "Cemeteries")
@@ -35,6 +35,8 @@ eldridge.banner_photo.attach(io: fileOne, filename: 'image1.jpg')
 eldridge.photos.attach(io: fileTwo, filename: 'image2.jpg')
 eldridge.photos.attach(io: fileThree, filename: 'image3.jpg')
 eldridge.save!
+eldridge.categories << freeCategory
+eldridge.categories << childFriendlyCategory
 
 eldridge.categories << childFriendlyCategory
 eldridge.categories << sacredCategory
