@@ -9,8 +9,8 @@
   <% else %>
     <% current_user.favorites.each do |favorite| %>
       <div class="card-trip">
-        <img src="https://images.unsplash.com/photo-1482245294234-b3f2f8d5f1a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1130&q=80" />
-        <div class="card-trip-infos">
+      <%= cl_image_tag favorite.activity.banner_photo.key, crop: :fill %>        
+      <div class="card-trip-infos">
           <div>
             <h2><%= favorite.activity.name%></h2>
             <p><%= favorite.activity.description %></p>

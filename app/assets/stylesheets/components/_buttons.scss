@@ -52,6 +52,9 @@
   font-weight: 400;
   opacity: 0.9;
   transition: opacity 0.3s ease;
+  &:hover{
+    border: 2px solid $baby-blue;
+  }
 }
 
 .btn-back:hover {
@@ -117,4 +120,10 @@
 .btn-gradient:hover {
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
+}
+
+
+#back-btn {
+  color: white;
+  font-size: 48px;
 }
