@@ -34,3 +34,11 @@
   grid-gap: 4px;
 }
 
+.index-card-product{
+  text-decoration: none;
+  color: black; 
+  &:hover{
+    text-decoration: none;
+    color: black; 
+  }
+}
