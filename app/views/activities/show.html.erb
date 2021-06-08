@@ -11,14 +11,13 @@ url('<%= cl_image_path @activity.banner_photo.key, crop: :fill %>')">
   <div id="heart">
     <% if user_signed_in?%>
       <% if current_user.favorites.where(activity_id: @activity.id).exists? %>
-      <%# <% raise %>
-        <%= link_to favorite_path(current_user.favorites.where(activity_id: @activity.id)),
-              method: :delete, remote: true do %>
+        <%= link_to favorite_path(current_user.favorites.find_by(activity_id: @activity.id)),
+              method: :delete do %>
           <i class="fas fa-heart m-3"></i>
         <% end %>
       <% else %>
         <%= link_to activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id }  do %>
-              <i class="far fa-heart"></i>
+              <i class="far fa-heart m-3"></i>
         <% end %>
       <% end %>
     <% end %>
@@ -26,17 +25,19 @@ url('<%= cl_image_path @activity.banner_photo.key, crop: :fill %>')">
 </div>
 
 <div class="container">
-  <div class="row">
-    <h6 class="col-md-12 col-lg-4">Every day except Mondays <br>
+  <div class="row ">
+    <h6 class="col-md-12 col-lg-3 my-3">Every day except Mondays <br>
        <%= @activity.opening_hours %>
     </h6>
-    <div class="col-md-12 col-lg-4"><%= render 'avg_rating' %></div>
-    <div class="card-product col-md-12 col-lg-4">
+    <div class="col-md-12 col-lg-4 p-3 my-3"><%= render 'avg_rating' %></div>
+    <div class="card-product col-md-12 col-lg-5 p-0 my-3" style="max-width: 475px">
       <img src="http://mt0.google.com/vt/lyrs=m@189000000&hl=en&src=api&x=4828&y=6162&z=14&s=Galile" />
       <div class="card-product-infos">
         <p><i class="fas fa-map-pin"></i>       <strong> <%= @activity.address %></p></strong>
         <p><i class="fas fa-phone"></i>      <strong> <%= @activity.contact_number %></p></strong>
         <p><i class="fas fa-envelope"></i>      <strong> <%= @activity.name.downcase.gsub(/\s+/, "")%>@cc.club</p></strong>
+        <p><i class="fas fa-dollar-sign"></i>      <strong> <%= @activity.price.round(0) %></p></strong>
+
       </div>
     </div>
   </div>
