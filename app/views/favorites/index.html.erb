@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>My favorites</h1>
+  <h1 id="my-favorites">My favorites</h1>
   <br>
   <% if current_user.favorites.blank? %>
     <h5>Nothing saved yet</h5>
@@ -9,8 +9,8 @@
   <% else %>
     <% current_user.favorites.each do |favorite| %>
       <div class="card-trip">
-      <%= cl_image_tag favorite.activity.banner_photo.key, crop: :fill %>        
-      <div class="card-trip-infos">
+        <%= cl_image_tag booking.activity.banner_photo.key, height: 450, width: 850, crop: :fill%>
+        <div class="card-trip-infos">
           <div>
             <h2><%= favorite.activity.name%></h2>
             <p><%= favorite.activity.description %></p>
