@@ -1,19 +1,47 @@
-<div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-url('<%= cl_image_path @activity.banner_photo.key, width: 1130, crop: :fill %>')">
+<div class="show-banner d-flex align-items-start justify-content-between" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+url('<%= cl_image_path @activity.banner_photo.key, crop: :fill %>')">
+
+  <%= link_to activities_path do %>
+    <i id="back-btn" class="fas fa-chevron-left m-3"></i>
+  <% end %>
+  <div class="align-self-center">
     <h1><%= @activity.name %></h1>
-    <%= link_to 'Reserve now!', new_activity_booking_path(@activity), class: 'btn btn-simple my-3', data: { turbolinks: false } %>
+    <%= link_to 'Book now!', new_activity_booking_path(@activity), class: 'btn btn-simple my-3', data: { turbolinks: false } %>
+  </div>
+  <div id="heart">
+    <% if user_signed_in?%>
+      <% if current_user.favorites.where(activity_id: @activity.id).exists? %>
+        <%= link_to favorite_path(current_user.favorites.find_by(activity_id: @activity.id)),
+              method: :delete do %>
+          <i class="fas fa-heart m-3"></i>
+        <% end %>
+      <% else %>
+        <%= link_to activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id }  do %>
+              <i class="far fa-heart m-3"></i>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 <div class="container">
-  <div class="main-info d-flex justify-content-between">
-    <h6>Every day except Mondays <br>
-       From 9.30 am to 6.00 pm
+  <div class="row ">
+    <h6 class="col-md-12 col-lg-3 my-3">Every day except Mondays <br>
+       <%= @activity.opening_hours %>
     </h6>
-    <%= render 'avg_rating' %>
-    <div class="card-product">
+    <div class="col-md-12 col-lg-4 p-3 my-3"><%= render 'avg_rating' %></div>
+    <div class="card-product col-md-12 col-lg-5 p-0 my-3" style="max-width: 475px">
       <img src="http://mt0.google.com/vt/lyrs=m@189000000&hl=en&src=api&x=4828&y=6162&z=14&s=Galile" />
       <div class="card-product-infos">
-        <p><%= @activity.address %></p>
+        <p><i class="fas fa-map-pin"></i>       <strong> <%= @activity.address %></p></strong>
+        <p><i class="fas fa-phone"></i>      <strong> <%= @activity.contact_number %></p></strong>
+        <p><i class="fas fa-envelope"></i>      <strong> <%= @activity.name.downcase.gsub(/\s+/, "")%>@cc.club</p></strong>
+        <p><i class="fas fa-dollar-sign"></i><% if @activity.price == 0 %>
+               <strong> FREE </strong>
+              <% else %>
+                <strong> <%= @activity.price.round(0) %> </strong>
+              <% end %></p>
+
       </div>
     </div>
   </div>
@@ -23,13 +51,6 @@ url('<%= cl_image_path @activity.banner_photo.key, width: 1130, crop: :fill %>')
 <div class="container">
   <div class="description mb-4">
     <h6><%= @activity.description %></h6>
-      <% if user_signed_in?%>
-        <% unless current_user.favorites.where(activity_id: @activity.id).exists? %>
-          <%= link_to activity_favorites_path(@activity), method: :post, params: { "favorite[activity_id]" =>  @activity.id }  do %>
-                <i class="far fa-heart"></i>
-          <% end %>
-        <% end %>
-      <% end %>
   </div>
 </div>
 <div id="carouselActivityPhotos" class="carousel slide" data-ride="carousel">

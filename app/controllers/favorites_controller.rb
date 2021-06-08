@@ -21,6 +21,6 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find(params[:id])
     authorize @favorite
     @favorite.destroy
-    redirect_to favorites_path, notice: 'Activity unfavorited 💔'
+    redirect_back(fallback_location: favorites_path, notice: 'Activity unfavorited 💔')
   end
 end
