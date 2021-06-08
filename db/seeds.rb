@@ -522,13 +522,8 @@ frick.categories << cultureCategory
 
 puts 'frick created'
 
-<<<<<<< HEAD
 barrio = Activity.new({name: 'El Museo del Barrio', address: '1230 5th Avenue, New York, NY 10029', description: 'New York’s leading Latino cultural institution, welcomes visitors of all backgrounds to discover the artistic landscape of Latino, Caribbean, and Latin American cultures.', user: usertwo, price: 9, duration: 3, available_spots: 125, opening_hours: '11:00 am - 5:00 pm', contact_number: '212-831-7272' })
 fileOne = URI.open('https://repeatingislands.files.wordpress.com/2009/09/el-museo-2.jpg')
-=======
-barrio = Activity.new({name: 'El Museo del Barrio', address: '1230 5th Avenue, New York, NY 10029', description: 'New York’s leading Latino cultural institution, welcomes visitors of all backgrounds to discover the artistic landscape of Latino, Caribbean, and Latin American cultures.', provider: usertwo, price: 9, duration: 3, available_spots: 125, opening_hours: '11:00 am - 5:00 pm', contact_number: '212-831-7272' })
-fileOne = URI.open('https://c8.alamy.com/compde/hg79hk/new-york-ny-nyc-new-york-city-manhattan-spanish-harlem-el-museo-del-barrio-kunst-museum-theater-theater-el-teatro-eingang-sightseeing-visi-hg79hk.jpg')
->>>>>>> master
 fileTwo = URI.open('https://lovingnewyork.de/wp-content/uploads/2019/01/Museo-del-Barrio-NYC-190128122402011-1600x800.jpg')
 fileThree = URI.open('https://static01.nyt.com/images/2010/06/11/arts/11ferrerspan-1/11ferrer-2-articleLarge.jpg')
 barrio.banner_photo.attach(io: fileOne, filename: 'nes.png', content_type: 'image/png')
