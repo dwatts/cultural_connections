@@ -7,9 +7,9 @@
     <%= f.input :contact_number, label: 'contact info' %>
     <%= f.input :address, label: "What's the address?", placeholder: "Königsplatz"%>
     <%= f.input :description %>
-    <%= f.input :price %>
-    <%= f.input :duration %>
-    <%= f.input :available_spots %>
+    <%= f.input :price, input_html: {min: 0} %>
+    <%= f.input :duration, input_html: {min: 0} %>
+    <%= f.input :available_spots, input_html: {min: 0} %>
     <%= f.input :banner_photo, as: :file, label: "You can choose one main picture." %>
     <%= f.input :photos, as: :file, label: "You can choose up to 3 additional pictures.", input_html: { multiple: true } %>
     <%= f.submit "Submit", class: "btn btn-simple my-3" %>
