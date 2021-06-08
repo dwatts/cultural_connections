@@ -1,0 +1,26 @@
+<div class="container">
+  <br>
+  <div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    url('<%= cl_image_path @booking.activity.banner_photo.key, width: 1130, crop: :fill %>')">
+  </div>
+
+  <h2>Your Reservation for <%= @booking.activity.name %> is confirmed!</h1>
+  <br>
+
+  <h2><strong>Reservation Details</strong></h2>
+  <div class="reservation-details my-3 d-flex justify-content-between">
+    <h3><%= @booking.number_of_people %> x Adult admission</h3>
+    <h3>$ <%= @booking.activity.price %> p.p.</h3>
+    <h3><strong>$ <%= @booking.activity.price * @booking.number_of_people %> total</strong></h3>
+  </div>
+  
+
+  <div class="map-container border-top pt-3">
+    <h2><strong>How to get there</strong></h2>
+    <h6><%= @booking.activity.address %></h6>
+    <br>
+    <div class="border p-4">
+      <h2>Specific map with one marker</h2>
+    </div>
+  </div>
+</div>
