@@ -4,7 +4,7 @@
      <h2 id="subtitle-text">Culture | History | People</h2>
    </div>
   <div class="container text-center pt-3">
-    <%= form_tag activities_path, method: :get do %>
+    <%= form_tag activities_path, method: :get, data: { turbolinks: false } do %>
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
