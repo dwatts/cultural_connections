@@ -6,6 +6,7 @@ const buildMap = (mapElement) => {
   return new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/daytchw/ckpgwsvni0u8017ns1i77flde', 
+    //center: [40.735840661217814, -73.99209954046812]
   });
 };
 
