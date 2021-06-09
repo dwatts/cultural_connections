@@ -23,3 +23,9 @@
 .footer .fa-heart {
   color: $gold;
 }
+.about_us a {
+  color: $dark-purple;
+  &:hover {
+    text-decoration: none;
+  }
+}
