@@ -11,20 +11,8 @@ class ActivitiesController < ApplicationController
       OR activities.address @@ :query \
     "
     selected_categories = Category.where(id: params[:category_ids])
-    if params[:query].present? && params[:category_ids].present?
-      @activities = Activity.joins(:categories).where(sql_query, query: "%#{params[:query]}%")
-      @activities = @activities.select do
-        @activities.each do |activity|
-          activity.categories.each do |category|
-            selected_categories.include?(category)
-          end
-        end
-      end
-      @activities.uniq!
-      @activities = Activity.where(id: @activities.map(&:id))
-    elsif params[:query].present?
-      @activities = Activity.where(sql_query, query: "%#{params[:query]}%")
-    elsif params[:category_ids].present?
+
+    if params[:category_ids].present?
       @activities = []
       Activity.all.each do |activity|
         activity.categories.each do |category|
@@ -34,6 +22,24 @@ class ActivitiesController < ApplicationController
       @activities.uniq!
       @activities = Activity.where(id: @activities.map(&:id))
     end
+    @activities = @activities.where(sql_query, query: "%#{params[:query]}%") if params[:query].present?
+    
+
+      # if params[:query].present? && params[:category_ids].present?
+      #   @activities = Activity.where(sql_query, query: "%#{params[:query]}%")
+      #   @activities = @activities.select do
+      #     @activities.each do |activity|
+      #       activity.categories.each do |category|
+      #         selected_categories.include?(category)
+      #       end
+      #     end
+      #   end
+      #   @activities.uniq!
+      #   @activities = Activity.where(id: @activities.map(&:id))
+      # elsif params[:query].present?
+      #   @activities = Activity.where(sql_query, query: "%#{params[:query]}%")
+        
+      # end
     @markers = @activities.geocoded.map do |activity|
       {
         lat: activity.latitude,
