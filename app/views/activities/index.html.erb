@@ -10,7 +10,7 @@
              %>
       </div>
       <div class="col-md-12 col-lg-5 d-flex justify-content-between align-items-center category-search">
-        <%= select_tag "category_ids", options_from_collection_for_select(@categories, "id", "name"), multiple: true, class: 'select2 flex-grow-1' %>
+        <%= select_tag "category_ids", options_from_collection_for_select(@categories, "id", "name", params[:category_ids]), multiple: true, value: params[:category_ids], class: 'select2 flex-grow-1' %>
         <%= submit_tag "Search", class:"btn btn-simple my-3"%>  
       </div>
     </div>
