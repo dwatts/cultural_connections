@@ -38,67 +38,66 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 100, maxZoom: 17, duration: 4000 });
 };
 
+const add3dLayer = (map) => {
+  map.addLayer({
+    'id': 'add-3d-buildings',
+    'source': 'composite',
+    'source-layer': 'building',
+    'filter': ['==', 'extrude', 'true'],
+    'type': 'fill-extrusion',
+    'minzoom': 15,
+    'paint': {
+      'fill-extrusion-color': '#aaa',
+      'fill-extrusion-height': [
+        'interpolate',
+        ['linear'],
+        ['zoom'],
+        15,
+        0,
+        15.05
+        ['get', 'height']
+      ],
+      'fill-extrusion-base': [
+        'interpolate',
+        ['linear'],
+        ['zoom'],
+        15,
+        0,
+        15.05
+        ['get', 'min_height']
+      ],
+      'fill-extrusion-opacity': 0.6
+    }
+  });
+}
 
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
-  if (mapElement) {
-    const map = buildMap(mapElement);
-    const markers = JSON.parse(mapElement.dataset.markers);
-    console.log(markers);
-    addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers);
-    map.addControl(new mapboxgl.NavigationControl());
+  if (!mapElement) {
+    return
+  }
+  const map = buildMap(mapElement);
+  const markers = JSON.parse(mapElement.dataset.markers);
+  console.log(markers);
+  addMarkersToMap(map, markers);
+  fitMapToMarkers(map, markers);
+  map.addControl(new mapboxgl.NavigationControl());
 
-    map.on('load', function () {
+  map.on('load', function () {
 
-      map.addSource('mapbox-dem', {
+    map.addSource('mapbox-dem', {
       'type': 'raster-dem',
       'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
       'tileSize': 512,
       //'maxzoom': 14
-      });
-      // add the DEM source as a terrain layer with exaggerated height
-      map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
-      
     });
+    map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+    add3dLayer(map);
+  });
 
-    map.addLayer(
-        {
-            'id': 'add-3d-buildings',
-            'source': 'composite',
-            'source-layer': 'building',
-            'filter': ['==', 'extrude', 'true'],
-            'type': 'fill-extrusion',
-            'minzoom': 15,
-            'paint': {
-                'fill-extrusion-color': '#aaa',
-                'fill-extrusion-height': [
-                    'interpolate',
-                    ['linear'],
-                    ['zoom'],
-                    15,
-                    0,
-                    15.05
-                    ['get', 'height']
-                ],
-                'fill-extrusion-base': [
-                    'interpolate',
-                    ['linear'],
-                    ['zoom'],
-                    15,
-                    0,
-                    15.05
-                    ['get', 'min_height']
-                ],
-                'fill-extrusion-opacity': 0.6
-              }
-          },
-          
-          labelLayerId
-          );
-      }
 
-    };
+
+};
 
 export { initMapbox };
