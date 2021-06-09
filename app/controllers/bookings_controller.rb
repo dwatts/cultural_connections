@@ -8,7 +8,8 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @markers = [{ lat: @booking.activity.latitude, lng: @booking.activity.longitude, image_url: helpers.asset_url('new_icon.png') }]
+    @markers = [{ lat: @booking.activity.latitude, lng: @booking.activity.longitude, info_window: render_to_string(partial: "info_window", locals: { booking: @booking}), image_url: helpers.asset_url('new_icon.png') }]
+
   end
 
   def create
