@@ -20,6 +20,8 @@ url('<%= cl_image_path @activity.banner_photo.key, crop: :fill %>')">
               <i class="far fa-heart m-3"></i>
         <% end %>
       <% end %>
+    <% else %>
+      <i class="far fa-heart m-3 transparent"></i>
     <% end %>
   </div>
 </div>
