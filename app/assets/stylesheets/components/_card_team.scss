@@ -1,0 +1,16 @@
+.team-card img {
+ width: 200px;
+ height: 100%;
+ border-radius: 10px;
+}
+
+.team-card {
+  border-radius: 10px;
+}
+
+
+.team-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
