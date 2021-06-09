@@ -23,7 +23,7 @@
         <h2>Please try again with different search terms</h2>
       <% else %>
         <% @activities.each do |activity| %>
-          <%= link_to activity_path(activity), class: "index-card-product" do %>
+          <%= link_to activity_path(activity), class: "index-card-product", data: { turbolinks: false } do %>
             <%= cl_image_tag activity.banner_photo.key, crop: :fill %>
             <div class="index-card-product-infos">
               <div class="d-flex">

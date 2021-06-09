@@ -38,7 +38,7 @@
             <% if policy(Activity).create? %>
               <%= link_to "My activities", my_activities_path, class: "dropdown-item" %>
               <%= link_to "Create an activity", new_activity_path, class: "dropdown-item" %>
-              <%= link_to "Edit your profile", "users/edit", class: "dropdown-item" %>
+              <%= link_to "Edit your profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             <% else %>
               <%= link_to "Bookings", dashboard_path, class: "dropdown-item" %>

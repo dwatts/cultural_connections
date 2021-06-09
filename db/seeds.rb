@@ -22,10 +22,14 @@ oldHouseCategory = Category.create!(name: "Old Houses")
 sacredCategory = Category.create!(name: "Sacred Places")
 
 
+userone = User.create ({email: 'xueying@cc.club', username: 'Xueying', password: '123456', provider: true})
+userone.save!
+usertwo = User.create ({email: 'lucas@cc.club', username: 'Lucas', password: 'lewagon', provider: true})
+usertwo.save!
+userthree = User.create ({email: 'daniel@cc.club', username: 'Dan', password: 'lewagon', provider: false})
+usertwo.save!
 userone = User.create ({email: 'francesca@cc.club', username: 'Franci', password: '123456', provider: true})
 userone.save!
-usertwo = User.create ({email: 'daniel@cc.club', username: 'Dan', password: 'lewagon', provider: false})
-usertwo.save!
 
 eldridge = Activity.new({name: 'Museum at Eldridge Street', address: '12 Eldridge Street New York, NY 10002', description: 'The Museum at Eldridge Street is housed in the Eldridge Street Synagogue, a magnificent National Historic Landmark that has been meticulously restored.', lng_description: 'The Museum at Eldridge Street is housed in the Eldridge Street Synagogue, a magnificent National Historic Landmark that has been meticulously restored. Opened in 1887, the synagogue is the first great house of worship built in America by Jewish immigrants from Eastern Europe. Today, it is the only remaining marker of the great wave of Jewish migration to the Lower East Side that is open to a broad public who wish to visit Jewish New York. Exhibits, tours, cultural events and educational programs tell the story of Jewish immigrant life, explore architecture and historic preservation, inspire reflection on cultural continuity, and foster collaboration and exchange between people of all faiths, heritages and interests.', provider: usertwo, price: 15, duration: 1, available_spots: 20, opening_hours: '10:00 am - 5:00 pm', contact_number: '212-219-0302' })
 fileOne = URI.open('https://aws-tiqets-cdn.imgix.net/images/content/c9a5bd95b90e4c6e8c8552ae7d7cd96b.jpg?auto=format&fit=crop&ixlib=python-3.2.1&q=25&s=13fe9cb167db03e4ee2a2a183a247086&w=375&h=250&dpr=2.625')
