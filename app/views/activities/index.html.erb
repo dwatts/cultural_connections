@@ -22,6 +22,7 @@
         <h2>Sorry, we couldn't find any matches to your search</h2>
         <h2>Please try again with different search terms</h2>
       <% else %>
+        <h2>We found <strong><%= @activities.count %></strong> things to do that match your search</h2>
         <% @activities.each do |activity| %>
           <%= link_to activity_path(activity), class: "index-card-product", data: { turbolinks: false } do %>
             <%= cl_image_tag activity.banner_photo.key, crop: :fill %>
