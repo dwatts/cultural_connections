@@ -1,10 +1,14 @@
 .team-card img {
- width: 200px;
+ width: 130px;
  height: 100%;
+ flex-shrink: 0;
  border-radius: 10px;
+ border-top-right-radius: 0;
+ border-bottom-right-radius: 0;
 }
 
 .team-card {
+  height: 140px;
   border-radius: 10px;
 }
 
