@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :about_us ]
 
   def home
     @activities = Activity.all
@@ -14,4 +14,8 @@ class PagesController < ApplicationController
 
   def dashboard
   end
+
+  def about_us
+  end
+
 end
