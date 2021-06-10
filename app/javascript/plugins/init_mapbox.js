@@ -17,11 +17,9 @@ const addMarkersToMap = (map, markers) => {
       closeButton: false,
     }).setHTML(marker.info_window);
     const element = document.createElement('div');
-    element.className = 'marker';
-    element.style.backgroundImage = `url('${marker.image_url}')`;
+    element.id = `${marker.id}`;
+    element.className = 'marker marker-logo';
     element.style.backgroundSize = 'contain';
-    element.style.width = '30px';
-    element.style.height = '30px';
     element.style.opacity = '90%';
 
     new mapboxgl.Marker(element, {
@@ -31,6 +29,8 @@ const addMarkersToMap = (map, markers) => {
       .addTo(map);
   });
 };
+
+
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
@@ -72,6 +72,23 @@ const add3dLayer = (map) => {
 }
 
 
+const changeMarkersOnHover = () => {
+  const allCards = document.querySelectorAll('.index-card-product');
+  allCards.forEach((card)=> {
+    const id = card.getAttribute('href').split('/')[2];
+    const marker = document.querySelector(`#marker-${id}`);
+    card.addEventListener('mouseenter', function(event) {
+      marker.classList.remove("marker-logo");
+      marker.classList.add("marker-hover-logo");
+    });
+    card.addEventListener('mouseleave', function(event) {
+      marker.classList.remove("marker-hover-logo");
+      marker.classList.add("marker-logo");
+    });
+  });
+};
+
+
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
   if (!mapElement) {
@@ -79,7 +96,6 @@ const initMapbox = () => {
   }
   const map = buildMap(mapElement);
   const markers = JSON.parse(mapElement.dataset.markers);
-  console.log(markers);
   addMarkersToMap(map, markers);
   fitMapToMarkers(map, markers);
   map.addControl(new mapboxgl.NavigationControl());
@@ -96,7 +112,7 @@ const initMapbox = () => {
     add3dLayer(map);
   });
 
-
+  changeMarkersOnHover()
 
 };
 

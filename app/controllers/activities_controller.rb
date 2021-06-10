@@ -29,9 +29,9 @@ class ActivitiesController < ApplicationController
         lat: activity.latitude,
         lng: activity.longitude,
         info_window: render_to_string(partial: "info_window", locals: { activity: activity }),
-        image_url: helpers.asset_url('new_icon.png')
+        id: "marker-#{activity.id}"
       }
-    end 
+    end
   end
 
   def show
