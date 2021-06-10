@@ -42,12 +42,16 @@
 
 .card-trip .fa-trash-alt {
   color: $red;
-  margin-left: 8px;
+  margin-left: 16px;
   font-size: 24px;
+  &:hover {
+    transform: scale(1.2);
+    transition: transform 0.8s ease;
+  }
 }
 
 .card-trip-buttons {
   align-items: center;
-
+  justify-content: center;
 }
 
