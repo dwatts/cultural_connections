@@ -9,11 +9,11 @@
           <h2><%= booking.activity.name%> <small>(<%= booking.date.strftime("%-d %b %Y")%>)</small></h2>
           <p><%= booking.activity.description %></p>
         </div>
-        <div>
+        <div class = "card-trip-buttons d-flex">
           <%= link_to "Details", booking_path(booking), class: "btn btn-simple"%>
-          <small><%= link_to "Cancel", [booking, { booking: { status: 'false' }}], 
-            method: 'patch', remote: true, class:"btn btn-danger", style: "border-radius: 10px",
-            data: { confirm: "Are you sure you want to cancel your booking at #{booking.activity.name}?" } %></small>
+          <%= link_to [booking, { booking: { status: 'false' }}], method: 'patch', remote: true, data: { confirm: "Are you sure you want to cancel your booking at #{booking.activity.name}?" } do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
         </div>
       </div>
     </div>

@@ -23,23 +23,7 @@ class ActivitiesController < ApplicationController
       @activities = Activity.where(id: @activities.map(&:id))
     end
     @activities = @activities.where(sql_query, query: "%#{params[:query]}%") if params[:query].present?
-    
 
-      # if params[:query].present? && params[:category_ids].present?
-      #   @activities = Activity.where(sql_query, query: "%#{params[:query]}%")
-      #   @activities = @activities.select do
-      #     @activities.each do |activity|
-      #       activity.categories.each do |category|
-      #         selected_categories.include?(category)
-      #       end
-      #     end
-      #   end
-      #   @activities.uniq!
-      #   @activities = Activity.where(id: @activities.map(&:id))
-      # elsif params[:query].present?
-      #   @activities = Activity.where(sql_query, query: "%#{params[:query]}%")
-        
-      # end
     @markers = @activities.geocoded.map do |activity|
       {
         lat: activity.latitude,
