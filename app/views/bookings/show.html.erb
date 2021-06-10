@@ -10,7 +10,13 @@
   <h2><strong>Reservation Details</strong></h2>
   <div class="reservation-details my-3 d-flex justify-content-between">
     <h3><%= @booking.number_of_people %> x Adult admission</h3>
-    <h3>$ <%= @booking.activity.price %> p.p.</h3>
+
+                <h3><% if @booking.activity.price == 0 %>
+                  FREE
+                <% else %>
+                  <i class="fas fa-dollar-sign" aria-hidden="true"></i> <%= @booking.activity.price.round(0) %> p.p.
+                <% end %>
+                </h3>
     <h3><strong>$ <%= @booking.activity.price * @booking.number_of_people %> total</strong></h3>
   </div>
   
@@ -26,4 +32,10 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
   </div>
+  <br>
+  <br>
+  <%= link_to 'Find more Activities', activities_path, class: "btn btn-simple" %>
+  <br>
+  <br>
 </div>
+

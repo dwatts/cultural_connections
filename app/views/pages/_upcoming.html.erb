@@ -10,9 +10,9 @@
           <p><%= booking.activity.description %></p>
         </div>
         <div>
-          <%= link_to "Details", booking_path(booking), class: "btn-simple"%>
+          <%= link_to "Details", booking_path(booking), class: "btn btn-simple"%>
           <small><%= link_to "Cancel", [booking, { booking: { status: 'false' }}], 
-            method: 'patch', remote: true, style:"color:#FF0000;",
+            method: 'patch', remote: true, class:"btn btn-danger", style: "border-radius: 10px",
             data: { confirm: "Are you sure you want to cancel your booking at #{booking.activity.name}?" } %></small>
         </div>
       </div>
