@@ -9,6 +9,7 @@
   height: 200px;
   width: 100%;
   object-fit: cover;
+  linear-gradient: (rgba(0,0,0,0.3), rgba(0,0,0,0.3));
 }
 
 .card-trip h2 {
@@ -32,11 +33,21 @@
   
 }
 
-.card-trip i {
+.card-trip .fa-heart {
   position: absolute;
   right: 16px;
   top: 16px;
   color: red;
 }
 
+.card-trip .fa-trash-alt {
+  color: $red;
+  margin-left: 8px;
+  font-size: 24px;
+}
+
+.card-trip-buttons {
+  align-items: center;
+
+}
 

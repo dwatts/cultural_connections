@@ -5,6 +5,7 @@
  border-radius: 10px;
  border-top-right-radius: 0;
  border-bottom-right-radius: 0;
+
 }
 
 .team-card {
@@ -12,9 +13,21 @@
   border-radius: 10px;
 }
 
+@media(max-width: 768px) {
+  .card-product-infos {
+    overflow: scroll;
+    height: 100%;
+  }
+}
 
 .team-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
+}
+
+@media(max-width: 768px) {
+  .team-container {
+    grid-template-columns: 1fr;
+  }
 }
