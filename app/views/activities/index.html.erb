@@ -10,7 +10,7 @@
              %>
       </div>
       <div class="col-md-12 col-lg-5 d-flex justify-content-between align-items-center category-search">
-        <%= select_tag "category_ids", options_from_collection_for_select(@categories, "id", "name"), multiple: true, class: 'select2 flex-grow-1' %>
+        <%= select_tag "category_ids", options_from_collection_for_select(@categories, "id", "name", params[:category_ids]), multiple: true, value: params[:category_ids], class: 'select2 flex-grow-1' %>
         <%= submit_tag "Search", class:"btn btn-simple my-3"%>  
       </div>
     </div>
@@ -23,7 +23,7 @@
         <h2>Please try again with different search terms</h2>
       <% else %>
         <% @activities.each do |activity| %>
-          <%= link_to activity_path(activity), class: "index-card-product" do %>
+          <%= link_to activity_path(activity), class: "index-card-product", data: { turbolinks: false } do %>
             <%= cl_image_tag activity.banner_photo.key, crop: :fill %>
             <div class="index-card-product-infos">
               <div class="d-flex">
@@ -38,7 +38,7 @@
               <hr>
               <div class="d-flex d-none-sm">
               <h3 class="mr-auto"><%= activity.address %></h3>
-              <h3><i class="fas fa-clock"></i> <%= activity.duration.round(0) %> Hour<%='s' if activity.duration > 1 %></h3>
+              <h3><i class="fas fa-clock"></i> <%= activity.duration.round(0) %> Hour<%='s' if activity.duration > 1%></h3>
               </div>
               <p><%= activity.description %></p>
             </div>

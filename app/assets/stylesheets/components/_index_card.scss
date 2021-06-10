@@ -20,6 +20,7 @@
   height: 100%; 
   width: 25%;
   flex-shrink: 0;
+  max-width: 200px;
   object-fit: cover;
   border-radius: 5px 0px 0px 5px;
 }
@@ -42,6 +43,11 @@
     text-decoration: none;
     color: black; 
   }
+}
+
+.index-card-product-infos {
+  height: 200px;
+
 }
 
 

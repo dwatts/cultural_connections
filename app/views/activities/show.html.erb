@@ -20,6 +20,8 @@ url('<%= cl_image_path @activity.banner_photo.key, crop: :fill %>')">
               <i class="far fa-heart m-3"></i>
         <% end %>
       <% end %>
+    <% else %>
+      <i class="far fa-heart m-3 transparent"></i>
     <% end %>
   </div>
 </div>
@@ -50,9 +52,12 @@ url('<%= cl_image_path @activity.banner_photo.key, crop: :fill %>')">
   <br>
 <div class="container">
   <div class="description mb-4">
-    <h6><%= @activity.description %></h6>
+    <span class="description-text"><%= @activity.description %></span>
+    <span class="description-text"><%= @activity.lng_description %></span>
   </div>
 </div>
+<br>
+<br>
 <div id="carouselActivityPhotos" class="carousel slide" data-ride="carousel">
   <div class="text-center">
       <ol class="carousel-indicators">
@@ -65,12 +70,12 @@ url('<%= cl_image_path @activity.banner_photo.key, crop: :fill %>')">
       </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <%= cl_image_tag @activity.photos[0].key, height: 450, width: 850, crop: :fill%>
+        <%= cl_image_tag @activity.photos[0].key, height: 550, width: 950, crop: :fill, class:"carousel-img-show"%>
       </div>
         <% rest_photos = @activity.photos[1 .. -1] %>
         <% rest_photos.each do |photo| %>
       <div class="carousel-item">
-          <%= cl_image_tag photo.key, height: 450, width: 850, crop: :fill%>
+          <%= cl_image_tag photo.key, height: 550, width: 950, crop: :fill, class:"carousel-img-show"%>
       </div>
       <% end %>
     </div>
