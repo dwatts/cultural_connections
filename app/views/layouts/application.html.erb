@@ -6,11 +6,20 @@
     <%= csp_meta_tag %>
     <%= favicon_link_tag %>
 
-    <meta property="og:title" content="Cultural Connections Club"/>
-    <meta property="og:description" content="The Cultural Connections Club is a new way to find and support cultural organizations in your area. Our aim is to deliver fast easy and, convient service that combines unique interesting and, memorable experiences for all people."/>
-    <meta property="og:image" content=<%= image_url 'CCC_thumb.png' %>>
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="http://www.cultural-connections.club/"/>
+    <meta property="og:title" content=<%= meta_title %> />
+    <meta property="og:description" content=<%= meta_description %>  />
+    <meta property="og:image" content=<%= meta_image %> />
+    <meta property="og:type" content= <%= meta_type %>/>
+    <meta property="og:url" content= <%=meta_url %> />
+    <meta property="og:site_name" content= <%=meta_title %> />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:title" content="<%= meta_title %>">
+    <meta name="twitter:description" content="<%= meta_description %>">
+    <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:image:src" content="<%= meta_image %>">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
