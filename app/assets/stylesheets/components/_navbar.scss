@@ -41,3 +41,8 @@
   font-size: 20px !important;
   margin: 6px 16px 0px;
 }
+
+.navbar-nav {
+  flex-direction: row;
+  justify-content: space-around;
+}
