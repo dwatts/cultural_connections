@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container my-3">
   <h3>Make Changes to your activity or institution to the Cultural Connections Club</h3>
   <br>
   <%= simple_form_for(@activity) do |f| %>
     <%= f.input :name, label: 'What is the name of your institution'%>
     <%= f.input :opening_hours, label: 'When is the opening time' %>
-    <%= f.input :contact_number, label: 'contact info' %>
-    <%= f.input :address, label: "What's the address?", placeholder: "Königsplatz"%>
+    <%= f.input :contact_number, label: 'Telephone Number' %>
+    <%= f.input :address, label: "What's the address?", placeholder: ""%>
     <%= f.input :description %>
     <%= f.input :price, input_html: {min: 0} %>
     <%= f.input :duration, input_html: {min: 0} %>
